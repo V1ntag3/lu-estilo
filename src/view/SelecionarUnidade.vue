@@ -1,12 +1,13 @@
 
 <template>
     <Logo />
-
-    <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street" :number="loja.number">
-    </LocalizacaoItem>
-
-
+    <router-link to="/loja">
+        <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
+            :number="loja.number"></LocalizacaoItem>
+    </router-link>
     <Localizacao />
+    <router-view />
+
 </template>
 
 <script>

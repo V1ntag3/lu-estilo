@@ -1,11 +1,16 @@
 import { createWebHistory, createRouter } from "vue-router";
 import SelecionarUnidade from "../view/SelecionarUnidade.vue"
-
+import PaginaLoja from "../view/PaginaLoja.vue"
 const routes = [
      {
     path: "/",
     name: "Home",
     component: SelecionarUnidade,
+  },
+  {
+    path: "/loja",
+    name: "PaginaLoja",
+    component: PaginaLoja
   }
 ];
 
