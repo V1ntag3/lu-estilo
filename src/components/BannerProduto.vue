@@ -1,12 +1,7 @@
 <template>
 
-    <button id="voltar">
-        <img src="../assets/setadevoltar.png" alt="">
-    </button>
+    <div id="banner"></div>
 
-    <div id="banner">
-
-    </div>
 </template>
 
 <script>

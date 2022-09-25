@@ -2,6 +2,7 @@
     <button id="voltar">
         <img src="../assets/setadevoltar.png" alt="">
     </button>
+
 </template>
 
 <script>
