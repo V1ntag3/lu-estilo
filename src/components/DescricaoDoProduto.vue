@@ -10,7 +10,7 @@
             <button>Preta</button>
         </div>
 
-        <hr>
+        <div id="separador"></div>
 
         <h5>Descrição</h5>
         <h5>Aqui vai ter uma descrição completa do produto mostrando todas as especificações do mesmo. Aqui vai ter uma
@@ -18,9 +18,15 @@
             completa do produto mostrando todas as especificações do mesmo. Aqui vai ter uma descrição completa do
             produto mostrando
             todas as especificações do mesmo.</h5>
+        <div id="separador"></div>
+        <div id="observacao">
+            <h5>Você quer adicionar alguma observação?</h5>
+            <input type="text" placeholder="Digite aqui...">
 
-        <hr>
+        </div>
+
     </div>
+
 </template>
 <script>
 
@@ -77,9 +83,26 @@ h5 {
     background: rgba(0, 0, 0, 0.50);
 }
 
-hr {
+#separador {
+    background-color: black;
+    height: 1px;
     margin: 20px auto;
     border-color: black;
     width: 96%;
+}
+
+input {
+    padding: 12px 0px 12px 16px;
+    gap: 10px;
+    width: 96%;
+    height: 48px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.0075em;
 }
 </style>
