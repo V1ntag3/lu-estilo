@@ -1,11 +1,14 @@
 <template>
-    <Banner :image="dadosDaLoja.banner" />
-    <Pesquisar />
+    <div id="fundo">
 
-    <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
-        :products="categoria.products" />
+        <Banner :image="dadosDaLoja.banner" />
+        <Pesquisar />
+        <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
+            :products="categoria.products" />
+    </div>
 
 
+    <NavbarInferior id="navbar" />
 </template>
 
 <script>
@@ -13,31 +16,33 @@ import Banner from "@/components/Banner.vue";
 import Pesquisar from "@/components/Pesquisar.vue"
 import Lojas from '../services/lojasGET'
 import Categoria from "@/components/Categoria.vue";
+import NavbarInferior from "../components/NavbarInferior.vue";
 
 export default {
     name: 'App',
     components: {
         Banner,
         Pesquisar,
-        Categoria
+        Categoria,
+        NavbarInferior
     }, props: {
-
+        slug: this
     },
     data() {
         return {
             //tem que se retirado da url de alguma maneira
-            slug_da_loja: "lu_estilo",
+            slug_da_loja: this.$route.params,
             dadosDaLoja: [],
             categorias: []
         }
     },
     created() {
 
-        Lojas.dadosDaLoja(this.slug_da_loja).then(resposta => {
+        Lojas.dadosDaLoja(this.slug_da_loja.slug).then(resposta => {
             this.dadosDaLoja = resposta.data
         },
-            Lojas.listarCategorias(this.slug_da_loja).then(
-                resposta => { this.categorias = resposta.data, console.log(resposta.data) }
+            Lojas.listarCategorias(this.slug_da_loja.slug).then(
+                resposta => { this.categorias = resposta.data }
             )
 
         )
@@ -48,3 +53,30 @@ export default {
     }
 }
 </script>
+<style>
+#navbar #carrinho h5,
+#minha-conta h5 {
+    color: #395BB9;
+    filter: opacity(0.4)
+}
+
+#navbar #carrinho,
+#minha-conta {
+    filter: opacity(0.4)
+}
+
+#navbar #carrinho:hover,
+#minha-conta:hover {
+    width: 33.3%;
+    display: inline-block;
+    filter: opacity(1)
+}
+
+#home {
+    cursor: ;
+}
+
+#fundo {
+    padding-bottom: 100px;
+}
+</style>

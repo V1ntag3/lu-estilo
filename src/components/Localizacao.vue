@@ -1,6 +1,8 @@
 <template>
     <div id="container">
-        <router-link :to="{ name: 'PaginaLoja' , params: {id: loja.slug }}">
+        <router-link :to="{ name: 'PaginaLoja' , params: {slug: loja.slug }}">
+
+
             <div id="localizacao">
 
                 <div id="icon-loc" width="30px" height="30px">

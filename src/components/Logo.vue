@@ -31,7 +31,6 @@ export default {
 
 #titulo {
     margin: 30px;
-
     font-family: "Poppins";
     font-style: normal;
     font-weight: 700;
