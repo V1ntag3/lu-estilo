@@ -1,11 +1,8 @@
 <template>
-    <div id="itens">
-        <div class="card">
-            <img src={{image}} alt="" id="card-image">
-            <div class="card-image"></div>
-            <p class="card-desc">{{ short_description }}</p>
-            <p class="card-preco">R$ {{unit_price}}</p>
-        </div>
+    <div class="card">
+        <img v-bind:src="image" alt="" class="card-image">
+        <p class="card-desc">{{ short_description }}</p>
+        <p class="card-preco">R$ {{unit_price}}</p>
     </div>
 </template>
 
@@ -32,19 +29,22 @@ export default {
 
 <style>
 .card {
+    transition: 0.5s;
     cursor: pointer;
-    text-align: left;
-    display: block;
     width: 180px;
-    height: 180px;
     margin: 10px;
 }
 
 .card-image {
+
     width: 180px;
     height: 180px;
     border-radius: 8px;
     margin-bottom: 10px;
+}
+
+.card:hover {
+    filter: opacity(0.5);
 }
 
 .card-desc {
@@ -61,5 +61,9 @@ export default {
     line-height: 28px;
     letter-spacing: 0.0075em;
     color: #FFFFFF;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 </style>

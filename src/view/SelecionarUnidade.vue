@@ -38,12 +38,7 @@ export default {
         )
     },
     methods: {
-        listar() {
-            Lojas.listarLojas().then(resposta => {
-                this.lojas = resposta.data.stores
-                this.image = resposta.data.image
-            })
-        }
+
     }
 }
 </script>
