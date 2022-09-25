@@ -1,7 +1,11 @@
-import {http} from './config'
+import { http } from './config'
+let cliente = 'cliente_01/'
 
 export default {
-    listar: () => {
-        return http.get('cliente_01/?format=json')
-    } 
+    listarLojas: () => {
+        return http.get(cliente)
+    },
+    dadosDaLoja: (slug_da_loja) => {
+        return http.get(cliente + slug_da_loja)
+    }
 }

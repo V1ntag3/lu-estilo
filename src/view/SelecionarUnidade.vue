@@ -8,12 +8,12 @@
     <Localizacao />
     <router-view />
 
+
 </template>
 
 <script>
 import Logo from "../components/Logo.vue";
 import Lojas from '../services/lojasGET'
-
 export default {
     name: 'App',
     components: {
@@ -25,7 +25,7 @@ export default {
         }
     },
     created() {
-        Lojas.listar().then(resposta => {
+        Lojas.listarLojas().then(resposta => {
             console.log(resposta.data)
             this.lojas = resposta.data.stores
         },
@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         listar() {
-            Lojas.listar().then(resposta => {
+            Lojas.listarLojas().then(resposta => {
                 this.lojas = resposta.data.stores
             })
         }

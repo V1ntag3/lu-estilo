@@ -18,6 +18,7 @@ export default {
     background-color: #FFFFFF;
 
     margin-top: 20px;
+    margin-bottom: 20px;
 
     width: 430px;
     height: 56px;
