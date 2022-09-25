@@ -70,6 +70,7 @@ h5 {
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
+    color: #FFFFFF;
 }
 
 #opcoes button:focus {
