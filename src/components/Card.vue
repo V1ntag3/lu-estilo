@@ -1,9 +1,14 @@
 <template>
+
     <div class="card">
         <img v-bind:src="image" alt="" class="card-image">
+
         <p class="card-desc">{{ short_description }}</p>
+
         <p class="card-preco">R$ {{unit_price}}</p>
+
     </div>
+
 </template>
 
 <script>
@@ -23,7 +28,6 @@ export default {
         }
     }
 }
-
 
 </script>
 

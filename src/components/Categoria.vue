@@ -1,9 +1,12 @@
 <template>
+
     <p class="card-titulo">{{categories}}</p>
+
     <div class="card-container">
         <Card v-for="produto in produtos" :key="produto.id" :short_description="produto.short_description"
             :image="produto.images[0].image" :unit_price="produto.stocks[0].unit_price" />
     </div>
+
 </template>
 
 <script>
@@ -19,7 +22,6 @@ export default {
         categories: {
             type: String
         },
-
         products: Object
     }, data() {
         return { produtos: toRaw(this.products) }
@@ -28,7 +30,6 @@ export default {
         // console.log(toRaw(this.products));
         //    console.log(this.products)
     },
-
 
 }
 

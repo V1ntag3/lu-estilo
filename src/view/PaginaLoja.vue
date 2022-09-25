@@ -1,12 +1,13 @@
 <template>
-    <div id="fundo">
 
+    <div id="fundo">
         <Banner :image="dadosDaLoja.banner" />
+
         <Pesquisar />
+
         <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
             :products="categoria.products" />
     </div>
-
 
     <NavbarInferior id="navbar" />
 </template>
@@ -25,12 +26,9 @@ export default {
         Pesquisar,
         Categoria,
         NavbarInferior
-    }, props: {
-        slug: this
     },
     data() {
         return {
-            //tem que se retirado da url de alguma maneira
             slug_da_loja: this.$route.params,
             dadosDaLoja: [],
             categorias: []
@@ -47,12 +45,10 @@ export default {
 
         )
 
-    },
-    methods: {
-
     }
 }
 </script>
+
 <style>
 #navbar #carrinho h5,
 #minha-conta h5 {
@@ -70,10 +66,6 @@ export default {
     width: 33.3%;
     display: inline-block;
     filter: opacity(1)
-}
-
-#home {
-    cursor: ;
 }
 
 #fundo {

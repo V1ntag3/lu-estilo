@@ -1,13 +1,16 @@
 <template>
     <img v-bind:src="image" alt="" id="logo">
+
     <h2 id="titulo">
         Olá, seja <br />
         bem-vindo.
     </h2>
+
     <p id="sub-titulo">
         Antes de continuarmos, selecione uma de <br />
         nossas unidades.
     </p>
+
 </template>
 
 <script>
@@ -43,15 +46,12 @@ export default {
 
 #sub-titulo {
     margin-bottom: 30px;
-
     font-family: "Poppins";
     font-style: normal;
     font-weight: 100;
     font-size: 16px;
     line-height: 28px;
     letter-spacing: 0.0075em;
-
     color: #f2f2f2;
-
 }
 </style>

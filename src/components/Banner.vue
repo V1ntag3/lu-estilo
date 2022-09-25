@@ -1,5 +1,7 @@
 <template>
+
     <img v-bind:src="image" alt="" id="banner">
+
 </template>
 
 <script>
@@ -11,9 +13,8 @@ export default {
             type: String
         }
     }
-
-
 }
+
 </script>
 
 <style>

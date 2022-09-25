@@ -2,19 +2,15 @@
     <div id="container">
         <router-link :to="{ name: 'PaginaLoja' , params: {slug: loja.slug }}">
 
-
             <div id="localizacao">
-
-                <div id="icon-loc" width="30px" height="30px">
-
-                </div>
+                <div id="icon-loc" width="30px" height="30px"></div>
                 <div id="sub-container-loc">
                     <p id="nome-loja">{{name}}</p>
                     <p id="endereco">{{street}}, {{number}}</p>
                 </div>
-                <div id="seta">
-                </div>
+                <div id="seta"></div>
             </div>
+
         </router-link>
     </div>
 
@@ -40,7 +36,6 @@ export default {
         }
     }
 }
-
 
 </script>
 
