@@ -1,7 +1,12 @@
 <template>
+
     <button id="voltar">
         <img src="../assets/setadevoltar.png" alt="">
     </button>
+
+    <div id="banner">
+
+    </div>
 </template>
 
 <script>
@@ -22,5 +27,11 @@
 
 #voltar:hover {
     background-color: rgba(0, 0, 0, 0.50);
+}
+
+#banner {
+    background-color: white;
+    width: 100%;
+    height: 300px;
 }
 </style>
