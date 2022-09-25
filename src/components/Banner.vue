@@ -1,21 +1,23 @@
 <template>
-    <img src="@/assets/home-banner.png" alt="" id="banner">
+    <img v-bind:src="image" alt="" id="banner">
 </template>
 
 <script>
 
 export default {
-    name: 'BannerItem'
+    name: 'BannerItem',
+    props: {
+        image: {
+            type: String
+        }
+    }
 
 
 }
-
-
 </script>
 
 <style>
 #banner {
-    background-size: 100%;
     width: 100%;
     height: 43vw;
 }

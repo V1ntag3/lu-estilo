@@ -1,5 +1,5 @@
 <template>
-    <div id="logo"></div>
+    <img v-bind:src="image" alt="" id="logo">
     <h2 id="titulo">
         Olá, seja <br />
         bem-vindo.
@@ -13,19 +13,20 @@
 <script>
 
 export default {
-    name: 'LogoItem'
-}
 
+    name: 'LogoItem',
+    props: {
+        image: {
+            type: String
+        }
+    }
+}
 
 </script>
 
 <style>
 #logo {
-    margin: 50px auto 0px auto;
-    background-repeat: no-repeat;
-    height: 96px;
-    width: 128px;
-    background-image: url(../assets/PlusPDV_logo\ 1.png);
+    margin: 40px auto 0px auto;
 }
 
 #titulo {

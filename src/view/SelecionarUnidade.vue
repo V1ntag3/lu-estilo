@@ -1,10 +1,10 @@
 
 <template>
-    <Logo />
-    <router-link to="/loja">
-        <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
-            :number="loja.number"></LocalizacaoItem>
-    </router-link>
+    <Logo :image="image" />
+
+    <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street" :number="loja.number"
+        :loja="loja"></LocalizacaoItem>
+
     <Localizacao />
     <router-view />
 
@@ -21,13 +21,17 @@ export default {
     },
     data() {
         return {
-            lojas: []
+
+            lojas: [],
+            image: {}
+
         }
     },
     created() {
         Lojas.listarLojas().then(resposta => {
             console.log(resposta.data)
             this.lojas = resposta.data.stores
+            this.image = resposta.data.banner
         },
             this.listar
 
@@ -37,6 +41,7 @@ export default {
         listar() {
             Lojas.listarLojas().then(resposta => {
                 this.lojas = resposta.data.stores
+                this.image = resposta.data.image
             })
         }
     }

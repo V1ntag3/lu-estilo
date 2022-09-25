@@ -1,18 +1,19 @@
 <template>
     <div id="container">
+        <router-link :to="{ name: 'PaginaLoja' , params: {id: loja.slug }}">
+            <div id="localizacao">
 
-        <div id="localizacao">
+                <div id="icon-loc" width="30px" height="30px">
 
-            <div id="icon-loc" width="30px" height="30px">
-
+                </div>
+                <div id="sub-container-loc">
+                    <p id="nome-loja">{{name}}</p>
+                    <p id="endereco">{{street}}, {{number}}</p>
+                </div>
+                <div id="seta">
+                </div>
             </div>
-            <div id="sub-container-loc">
-                <p id="nome-loja">{{name}}</p>
-                <p id="endereco">{{street}}, {{number}}</p>
-            </div>
-            <div id="seta">
-            </div>
-        </div>
+        </router-link>
     </div>
 
 </template>
@@ -31,6 +32,9 @@ export default {
         },
         number: {
             type: String
+        },
+        loja: {
+            type: Array
         }
     }
 }

@@ -8,7 +8,7 @@ const routes = [
     component: SelecionarUnidade,
   },
   {
-    path: "/loja",
+    path: "/loja:id",
     name: "PaginaLoja",
     component: PaginaLoja
   }
