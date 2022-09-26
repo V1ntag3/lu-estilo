@@ -1,5 +1,5 @@
 <template>
-    <img v-bind:src="image" alt="" id="logo">
+    <img v-bind:src="image" alt="logo" id="logo">
 
     <h2 id="titulo">
         Olá, seja <br />
@@ -20,7 +20,8 @@ export default {
     name: 'LogoItem',
     props: {
         image: {
-            type: Object
+            subtype: String
+
 
         }
 

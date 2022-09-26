@@ -8,10 +8,12 @@ let cliente = 'cliente_01/'
 let lojas = 'lojas/'
 let format = '?format=json'
 let categoria = 'categorias/'
-
+let produtos = 'produtos/'
+let pesquisaP  ='?ids='
 
 export const useUserStore = defineStore("user", {
-    state: () => ({
+  state: () => ({
+    slug:{},
     lojas: [],
     banner: {},
     currentLoja: [],
@@ -31,6 +33,11 @@ export const useUserStore = defineStore("user", {
       },
       getCategorias(state) {
         return state.categorias
+      }, getCurrentProduto(state) {
+        return state.currentProduto
+      },
+      getSlug(state) {
+        return state.slug
       }
     },
     actions: {
@@ -49,7 +56,8 @@ export const useUserStore = defineStore("user", {
           
           const data = await http.get(lojas+slug_da_loja +'/'+format)
           this.currentLoja = data.data
-  
+          this.slug = slug_da_loja
+
           }
           catch (error) {
             alert(error)
@@ -59,11 +67,22 @@ export const useUserStore = defineStore("user", {
         try {
 
           const data = await http.get(categoria + slug_da_loja + '/' + format)
+        
           this.categorias = data.data
           }
           catch (error) {
             alert(error)
             console.log(error)
+        }
+      }, async fetchCurrentProduto(id,slug_da_loja) {
+        try {
+          const data = await http.get(produtos + slug_da_loja + '/' + pesquisaP + id +'/'+format)
+          
+          this.currentProduto = data.data
+        }
+        catch (error) {
+          alert(error)
+          console.log(error)
         }
     },
       updateCurrentLoja(loja) {

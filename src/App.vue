@@ -20,7 +20,7 @@ body {
 
 @font-face {
   font-family: Poppins;
-  src: url(assets/Poppins-Regular.ttf);
+  src: url(../src/assets/Poppins-Regular.ttf);
 }
 
 #app {

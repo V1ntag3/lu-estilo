@@ -20,6 +20,7 @@ const lojas = computed(() => {
 const image = computed(() => {
     return store.getBanner
 })
+
 onMounted(() => {
     store.fetchLojas();
 })
