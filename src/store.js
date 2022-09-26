@@ -14,7 +14,6 @@ export const useUserStore = defineStore("user", {
         lojas: [],
         banner:{
     }
-       
     }),
     getters: {
       getLojas(state){
