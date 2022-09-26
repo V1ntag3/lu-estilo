@@ -13,19 +13,23 @@ export const useUserStore = defineStore("user", {
     state: () => ({
         lojas: [],
         banner:{
-
-        }
+    }
+       
     }),
     getters: {
       getLojas(state){
-          return state.lojas
-        }
+        return state.lojas
+      },
+      getBanner(state) {
+        return state.banner
+      }
     },
     actions: {
       async fetchLojas() {
         try {
           const data = await http.get(clientes+cliente+format)
-            this.lojas = data.data
+          this.lojas = data.data.stores
+          this.banner = data.data.banner
           }
           catch (error) {
             alert(error)
