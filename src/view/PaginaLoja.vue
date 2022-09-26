@@ -10,45 +10,66 @@
     </div>
 
     <NavbarInferior id="navbar" />
+
 </template>
 
-<script>
+<script setup>
+
+import { useUserStore } from "../store";
+import { useRoute } from 'vue-router';
+
+
+
+
+import { onMounted, computed } from 'vue';
+//import users store
+
+const route = useRoute();
+const store = useUserStore()
+
+
+
+
+
+
+// store.currentLoja = route.params.slug
+// console.log(store.currentLoja)
+
+
+// declare store variable
+const dadosDaLoja = computed(() => {
+    return store.getCurrentLoja
+})
+const categorias = computed(() => {
+    return store.getCategorias
+})
+onMounted(() => {
+    store.fetchDadosDaLoja(route.params.slug);
+    store.fetchCategorias(route.params.slug)
+})
+
+console.log(dadosDaLoja)
+
+
+
+
+
+</script>
+<script >
+
 import Banner from "@/components/Banner.vue";
 import Pesquisar from "@/components/Pesquisar.vue"
-import Lojas from '../services/lojasGET'
+
 import Categoria from "@/components/Categoria.vue";
 import NavbarInferior from "../components/NavbarInferior.vue";
-
 export default {
     name: 'App',
     components: {
-        Banner,
-        Pesquisar,
-        Categoria,
-        NavbarInferior
-    },
-    data() {
-        return {
-            slug_da_loja: this.$route.params,
-            dadosDaLoja: [],
-            categorias: []
-        }
-    },
-    created() {
-        console.log("odfd")
-        Lojas.dadosDaLoja(this.slug_da_loja.slug).then(resposta => {
-            this.dadosDaLoja = resposta.data
-        },
-            Lojas.listarCategorias(this.slug_da_loja.slug).then(
-                resposta => { this.categorias = resposta.data }
-            )
-
-        )
-
+        Banner, Pesquisar, Categoria, NavbarInferior
     }
 }
-</script>
 
+</script>
 <style>
 #navbar #carrinho h5,
 #minha-conta h5 {

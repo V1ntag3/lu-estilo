@@ -6,6 +6,7 @@
 
     <router-view />
 </template>
+
 <script setup>
 import { onMounted, computed } from 'vue';
 //import users store
@@ -14,15 +15,17 @@ import { useUserStore } from "../store";
 const store = useUserStore();
 
 const lojas = computed(() => {
-    return store.lojas
+    return store.getLojas
 })
 const image = computed(() => {
-    return store.banner
+    return store.getBanner
 })
 onMounted(() => {
     store.fetchLojas();
 })
 </script>
+
+
 <script >
 
 import Logo from "../components/Logo.vue";
@@ -33,6 +36,6 @@ export default {
     components: {
         Logo, LocalizacaoItem
     }
-
 }
+
 </script>

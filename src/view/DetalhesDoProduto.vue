@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <BotaoDeVoltar />
         <BannerProduto />
         <DescricaoDoProduto />
@@ -13,7 +14,7 @@ import BotaoDeVoltar from "../components/BotaoDeVoltar.vue";
 import BannerProduto from "../components/BannerProduto.vue";
 import DescricaoDoProduto from "../components/DescricaoDoProduto.vue"
 import BarraInferiorCompra from "../components/BarraInferiorCompra.vue"
-
+import Lojas from '../services/lojasGET'
 export default {
     components: {
         BotaoDeVoltar,
@@ -22,12 +23,14 @@ export default {
         BarraInferiorCompra
     }, data() {
         return {
-            produtoId: {},
-            imagens: [],
-            opcoes: [],
-            descricao: {},
-            preco: {}
+            slug_da_loja: {},
+            produtoId: [],
+            produto: []
         }
+    }, created() {
+        Lojas.dadosDaLoja(this.slug_da_loja, this.produtoId).then(resposta => {
+            this.produto = resposta.data
+        })
     }
 }
 </script>

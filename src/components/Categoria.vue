@@ -1,12 +1,15 @@
 <template>
 
     <p class="card-titulo">{{categories}}</p>
+    <router-link :to="{ name: 'DetalhesDoProduto'}">
+        <div class="card-container">
 
-    <div class="card-container">
-        <Card v-for="produto in produtos" :key="produto.id" :short_description="produto.short_description"
-            :image="produto.images[0].image" :unit_price="produto.stocks[0].unit_price" />
-    </div>
+            <Card v-for="produto in produtos" :key="produto.id" :short_description="produto.short_description"
+                :image="produto.images[0].image" :unit_price="produto.stocks[0].unit_price" />
 
+
+        </div>
+    </router-link>
 </template>
 
 <script>
