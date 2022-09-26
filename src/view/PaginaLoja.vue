@@ -17,26 +17,9 @@
 
 import { useUserStore } from "../store";
 import { useRoute } from 'vue-router';
-
-
-
-
 import { onMounted, computed } from 'vue';
-//import users store
-
 const route = useRoute();
 const store = useUserStore()
-
-
-
-
-
-
-// store.currentLoja = route.params.slug
-// console.log(store.currentLoja)
-
-
-// declare store variable
 const dadosDaLoja = computed(() => {
     return store.getCurrentLoja
 })
@@ -47,13 +30,7 @@ onMounted(() => {
     store.fetchDadosDaLoja(route.params.slug);
     store.fetchCategorias(route.params.slug)
 })
-
 console.log(dadosDaLoja)
-
-
-
-
-
 </script>
 <script >
 

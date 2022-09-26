@@ -1,13 +1,16 @@
 <template>
+    <router-link :to="{ name: 'DetalhesDoProduto', params: {id: produto_id }}">
 
-    <div class="card">
-        <img v-bind:src="image" alt="" class="card-image">
+        <div class="card">
+            <img v-bind:src="image" alt="" class="card-image">
 
-        <p class="card-desc">{{ short_description }}</p>
+            <p class="card-desc">{{ short_description }}</p>
 
-        <p class="card-preco">R$ {{unit_price}}</p>
+            <p class="card-preco">R$ {{unit_price}}</p>
 
-    </div>
+        </div>
+
+    </router-link>
 
 </template>
 
@@ -25,9 +28,14 @@ export default {
         },
         unit_price: {
             type: Number
+        }, id: {
+            type: Number
         }
+    }, data(props) {
+        return { produto_id: props.id }
     }
 }
+
 
 </script>
 
