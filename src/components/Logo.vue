@@ -20,8 +20,10 @@ export default {
     name: 'LogoItem',
     props: {
         image: {
-            type: String
+            type: Object
+
         }
+
     }
 }
 
@@ -34,8 +36,6 @@ export default {
 
 #titulo {
     margin: 30px;
-    font-family: "Poppins";
-    font-style: normal;
     font-weight: 700;
     font-size: 32px;
     line-height: 36px;
@@ -46,8 +46,6 @@ export default {
 
 #sub-titulo {
     margin-bottom: 30px;
-    font-family: "Poppins";
-    font-style: normal;
     font-weight: 100;
     font-size: 16px;
     line-height: 28px;

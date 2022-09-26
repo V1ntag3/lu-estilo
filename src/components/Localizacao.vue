@@ -1,7 +1,6 @@
 <template>
-    <div id="container">
-        <router-link :to="{ name: 'PaginaLoja' , params: {slug: loja.slug }}">
-
+    <router-link :to="{ name: 'PaginaLoja' , params: {slug: loja.slug }}">
+        <div id="container">
             <div id="localizacao">
                 <div id="icon-loc" width="30px" height="30px"></div>
                 <div id="sub-container-loc">
@@ -11,9 +10,9 @@
                 <div id="seta"></div>
             </div>
 
-        </router-link>
-    </div>
 
+        </div>
+    </router-link>
 </template>
 
 <script>
@@ -26,13 +25,12 @@ export default {
         },
         street: {
             type: String,
-            required: true
         },
         number: {
-            type: String
+            type: Number
         },
         loja: {
-            type: Array
+            type: Object
         }
     }
 }
@@ -82,8 +80,6 @@ export default {
 
 #nome-loja {
     display: block;
-    font-family: "Poppins";
-    font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
@@ -94,8 +90,6 @@ export default {
 
 #endereco {
     display: inline-block;
-    font-family: "Poppins";
-    font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;

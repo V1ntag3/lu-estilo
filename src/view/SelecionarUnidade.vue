@@ -3,19 +3,19 @@
 
     <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street" :number="loja.number"
         :loja="loja"></LocalizacaoItem>
-    <Localizacao />
 
     <router-view />
 </template>
 
-<script>
+<script >
+
 import Logo from "../components/Logo.vue";
 import Lojas from '../services/lojasGET'
-
+import LocalizacaoItem from '../components/Localizacao.vue'
 export default {
     name: 'App',
     components: {
-        Logo
+        Logo, LocalizacaoItem
     },
     data() {
         return {
@@ -28,12 +28,13 @@ export default {
             this.lojas = resposta.data.stores
             this.image = resposta.data.banner
         },
-            this.listar
+
 
         )
     },
-    methods: {
+    setup() {
 
-    }
+
+    },
 }
 </script>

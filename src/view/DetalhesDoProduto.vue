@@ -20,6 +20,14 @@ export default {
         BannerProduto,
         DescricaoDoProduto,
         BarraInferiorCompra
+    }, data() {
+        return {
+            produtoId: {},
+            imagens: [],
+            opcoes: [],
+            descricao: {},
+            preco: {}
+        }
     }
 }
 </script>

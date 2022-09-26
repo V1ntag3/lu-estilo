@@ -1,8 +1,9 @@
 import { createApp } from 'vue';
+import { createPinia } from 'pinia'
 import App from './App.vue';
-import Localizacao from '../src/components/Localizacao.vue';
-import router from './router' // <---
+import router from './router/router' // <---
 
+const pinia = createPinia()
 const app = createApp(App);
-app.component('LocalizacaoItem', Localizacao);
-app.use(router).mount('#app');
+
+app.use(router,pinia).mount('#app');

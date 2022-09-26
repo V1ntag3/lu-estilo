@@ -2,7 +2,7 @@
     <div id="pesquisar-container">
         <img src="../assets/pesquisar.png" alt="" id="icon-pesquisar">
 
-        <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui">
+        <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui" v-model="input_pesquisa">
 
     </div>
 
@@ -10,7 +10,12 @@
 
 <script>
 export default {
-    name: 'PesquisarItem'
+    name: 'PesquisarItem',
+    data() {
+
+    }, methods: {
+
+    }
 }
 </script>
 

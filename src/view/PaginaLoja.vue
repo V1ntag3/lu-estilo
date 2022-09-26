@@ -35,7 +35,7 @@ export default {
         }
     },
     created() {
-
+        console.log("odfd")
         Lojas.dadosDaLoja(this.slug_da_loja.slug).then(resposta => {
             this.dadosDaLoja = resposta.data
         },
