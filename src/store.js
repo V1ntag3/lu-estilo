@@ -3,6 +3,7 @@ import{toRaw} from 'vue'
 import { defineStore } from 'pinia'
 // Import axios to make HTTP requests
 import { http } from './services/config'
+import { String } from 'core-js'
 let clientes = 'clientes/'
 let cliente = 'cliente_01/'
 let lojas = 'lojas/'
@@ -14,14 +15,16 @@ let pesquisaP  ='&ids='
 export const useUserStore = defineStore("user", {
   state: () => ({
     slug: {
-      Type:String
-    },
+      Type:String},
     lojas: [],
     banner: {},
     currentLoja: [],
     currentProduto: [],
     cartProducts: [],
-    categorias:[]
+    categorias: [],
+    isLogged: {
+      value: false,
+    }
     }),
     getters: {
       getLojas(state){

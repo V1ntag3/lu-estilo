@@ -15,18 +15,24 @@
             </div>
         </router-link>
 
-
-        <div id="minha-conta">
-            <div id="icon-conta"></div>
-            <h5>Conta</h5>
-        </div>
+        <router-link :to="{ name: 'CadastroLogin'}">
+            <div id="minha-conta">
+                <div id="icon-conta"></div>
+                <h5>Conta</h5>
+            </div>
+        </router-link>
 
     </div>
 </template>
 
-<script >
+<script setup>
 
+import { useUserStore } from "../store";
+import { toRaw } from 'vue'
 
+const store = useUserStore()
+const isLogged = toRaw(store.isLogged)
+console.log(toRaw(isLogged).value)
 </script>
 
 <style>

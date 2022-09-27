@@ -3,6 +3,8 @@ import PaginaLoja from "../view/PaginaLoja.vue"
 import DetalhesDoProduto from "../view/DetalhesDoProduto.vue"
 import SelecionarUnidade from "@/view/SelecionarUnidade.vue";
 import CarrinhoDeProdutos from "@/view/CarrinhoDeProdutos.vue"
+import CadastroLogin from "@/view/CadastroLogin.vue"
+import LoginDaLoja from "@/view/LoginDaLoja.vue"
 const routes = [
   {
     path: "/",
@@ -26,6 +28,12 @@ const routes = [
     path: "/carrinho",
     name: "CarrinhoDeProdutos",
     component: CarrinhoDeProdutos,
+  }, {
+      path: "/cadastroLogin",
+    name: "CadastroLogin",component: CadastroLogin
+  }, {
+      path: "/login",
+    name: "LoginDaLoja",component: LoginDaLoja
   }
 ];
 
