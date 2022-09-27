@@ -16,7 +16,6 @@
         <div id="observacao">
             <h5>Você quer adicionar alguma observação?</h5>
             <input type="text" placeholder="Digite aqui...">
-
         </div>
     </div>
     <BarraInferiorCompra />
@@ -116,9 +115,17 @@ input {
     border-radius: 4px;
     border: none;
 
+    font-family: 'Poppins';
+    font-style: normal;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
+    /* identical to box height, or 171% */
+
     letter-spacing: 0.0075em;
+
+    /* text / labels */
+
+    color: #6E7191;
 }
 </style>

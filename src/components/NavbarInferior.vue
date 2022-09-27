@@ -1,6 +1,6 @@
 <template>
-
     <div id="navbar">
+
         <router-link :to="{name:'PaginaLojaVoltar'}">
             <div id="home">
                 <div id="icon-home"></div>
@@ -36,27 +36,6 @@ console.log(toRaw(isLogged).value)
 </script>
 
 <style>
-#home,
-#carrinho,
-#minha-conta {
-    color: #395BB9;
-    filter: opacity(0.4)
-}
-
-
-
-#home:hover,
-#carrinho:hover,
-#minha-conta:hover {
-    width: 33.3%;
-    display: inline-block;
-    filter: opacity(1)
-}
-
-
-
-
-
 #navbar {
     text-align: left;
     bottom: 0;
@@ -65,6 +44,21 @@ console.log(toRaw(isLogged).value)
     width: 100%;
     height: 56px;
     background: #FFFFFF;
+}
+
+#home,
+#carrinho,
+#minha-conta {
+    color: #395BB9;
+    filter: opacity(0.4)
+}
+
+#home:hover,
+#carrinho:hover,
+#minha-conta:hover {
+    width: 33.3%;
+    display: inline-block;
+    filter: opacity(1)
 }
 
 #home,

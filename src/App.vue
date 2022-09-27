@@ -14,9 +14,10 @@
 }
 
 body {
+  font-family: "Poppins";
+  font-style: normal;
   text-align: center;
   background: linear-gradient(226.95deg, #606C88 0%, #3F4C6B 100%);
-
 }
 
 @font-face {

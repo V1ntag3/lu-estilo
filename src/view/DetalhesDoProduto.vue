@@ -1,45 +1,31 @@
 <template>
-    <div>
+    <BotaoDeVoltar />
 
-        <BotaoDeVoltar />
-        <BannerProduto />
-        <DescricaoDoProduto v-for="produto in produtos" :key="produto.id" :id="produto.id"
-            :nome="produto.short_description" :opcoes="produto.stocks" :descricao="produto.description"
-            :produto="produto" />
+    <BannerProduto />
 
-    </div>
-
-
+    <DescricaoDoProduto v-for="produto in produtos" :key="produto.id" :id="produto.id" :nome="produto.short_description"
+        :opcoes="produto.stocks" :descricao="produto.description" :produto="produto" />
 </template>
+
 <script setup>
-
-
 
 import { useUserStore } from "../store";
 import { useRoute } from 'vue-router';
 import { onMounted, computed } from 'vue';
 
 const route = useRoute();
+
 const store = useUserStore()
 
 const produtos = computed(() => {
     return store.getCurrentProduto
 })
 
-//const produtos = toRaw(inter.value)
-//store.currentProduto = produtos
-
-
 console.log(produtos)
 onMounted(() => {
     store.fetchCurrentProduto(route.params.id);
-
 })
 </script>
-
-
-
-
 
 <script>
 import BotaoDeVoltar from "../components/BotaoDeVoltar.vue";
@@ -53,8 +39,3 @@ export default {
     }
 }
 </script>
-
-
-<style>
-
-</style>

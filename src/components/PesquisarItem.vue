@@ -51,6 +51,13 @@
     border: none;
     border-radius: 8px;
 
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.0075em;
+
 }
 
 #pesquisar:focus {

@@ -36,11 +36,15 @@ export default {
     }
 }
 
-
 </script>
 
 <style>
+a {
+    text-decoration: none;
+}
+
 .card {
+    text-decoration: none;
     transition: 0.5s;
     cursor: pointer;
     width: 180px;
@@ -63,6 +67,7 @@ export default {
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
+
     letter-spacing: 0.0075em;
     color: #FFFFFF;
 }

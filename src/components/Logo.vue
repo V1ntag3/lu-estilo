@@ -3,31 +3,23 @@
 
     <p id="titulo">
         Olá, seja <br />
-        bem-vindo.
-    </p>
+        bem-vindo.</p>
 
     <p id="sub-titulo">
         Antes de continuarmos, selecione uma de <br />
-        nossas unidades.
-    </p>
+        nossas unidades.</p>
 
 </template>
 
 <script>
-
 export default {
-
     name: 'LogoItem',
     props: {
         image: {
             subtype: String
-
-
         }
-
     }
 }
-
 </script>
 
 <style>
@@ -44,8 +36,6 @@ export default {
 
     color: #f2f2f2;
 }
-
-
 
 #sub-titulo {
     margin-bottom: 30px;

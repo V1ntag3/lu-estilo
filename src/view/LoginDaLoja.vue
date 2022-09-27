@@ -1,6 +1,7 @@
 <template>
+    <BotaoDeVoltarX />
     <div id="login-view">
-        <BotaoDeVoltarX />
+
         <FormularioLogin />
 
     </div>
@@ -15,9 +16,8 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 #login-view {
     margin: 0px 20px;
-
 }
 </style>

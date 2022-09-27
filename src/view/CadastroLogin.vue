@@ -1,6 +1,7 @@
 <template>
+    <BotaoDeVoltarX />
     <div id="cadastrologin">
-        <BotaoDeVoltarX />
+
         <h1>Acesse sua conta ou <br>cadastre-se!</h1>
         <h2>Para continuar o processo de compra, escolha uma das opções abaixo.</h2>
         <router-link :to="{name: 'LoginDaLoja'}">
@@ -14,7 +15,12 @@
 </template>
 
 <script>
-
+import BotaoDeVoltarX from '@/components/BotaoDeVoltarX.vue';
+export default {
+    components: {
+        BotaoDeVoltarX
+    }
+}
 </script>
 
 <style scoped>
@@ -23,10 +29,6 @@
 
     text-align: left;
     margin: 0 20px;
-
-
-    /* white/elements-bg */
-
     color: #FFFFFF;
 }
 

@@ -1,17 +1,19 @@
 <template>
-    <Logo :image="image" />
+    <div class="fundo">
 
-    <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street" :number="loja.number"
-        :loja="loja"></LocalizacaoItem>
 
+        <Logo :image="image" />
+
+        <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
+            :number="loja.number" :loja="loja"></LocalizacaoItem>
+    </div>
     <router-view />
 </template>
 
 <script setup>
 import { onMounted, computed } from 'vue';
-//import users store
 import { useUserStore } from "../store";
-// declare store variable
+
 const store = useUserStore();
 
 const lojas = computed(() => {
@@ -26,7 +28,6 @@ onMounted(() => {
 })
 </script>
 
-
 <script >
 
 import Logo from "../components/Logo.vue";
@@ -40,3 +41,14 @@ export default {
 }
 
 </script>
+<style>
+@font-face {
+    font-family: Poppins;
+    src: url(../assets/Poppins-Regular.ttf);
+}
+
+.fundo {
+    font-family: "Poppins";
+    font-style: normal;
+}
+</style>

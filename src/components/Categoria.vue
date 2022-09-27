@@ -41,8 +41,7 @@ export default {
 
 <style>
 .card-titulo {
-    font-family: 'Poppins';
-    font-style: normal;
+
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
@@ -60,7 +59,6 @@ export default {
     overflow-x: auto;
     overflow-y: hidden;
     scroll-behavior: smooth;
-    scrollbar-width: none;
     margin-left: 0px;
     display: flex;
     position: relative;

@@ -1,8 +1,10 @@
 <template>
+
     <div id="container-principal">
         <h2 id="tituloCar">Carrinho</h2>
     </div>
     <CompraCarrinho />
+
 </template>
 
 <script>
@@ -13,6 +15,7 @@ export default {
     }
 }
 </script>
+
 <style>
 #container-principal {
     margin: 0 15px;

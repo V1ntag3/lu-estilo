@@ -1,5 +1,5 @@
 <template>
-    <button id="voltar">
+    <button id="voltar" v-on:click="goBack">
         <img src="../assets/fechar.png" alt="">
     </button>
 
@@ -14,6 +14,7 @@ export default {
     }
 }
 </script>
+
 <style>
 #voltar {
     background-color: transparent;
