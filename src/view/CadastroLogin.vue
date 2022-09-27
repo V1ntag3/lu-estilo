@@ -1,8 +1,6 @@
 <template>
     <div id="cadastrologin">
-        <button id="voltar" v-on:click="goBack">
-            <img src="../assets/fechar.png" alt="">
-        </button>
+        <BotaoDeVoltarX />
         <h1>Acesse sua conta ou <br>cadastre-se!</h1>
         <h2>Para continuar o processo de compra, escolha uma das opções abaixo.</h2>
         <router-link :to="{name: 'LoginDaLoja'}">
@@ -16,32 +14,10 @@
 </template>
 
 <script>
-export default {
-    methods: {
-        goBack: function () {
-            window.history.back()
-        }
-    }
-}
+
 </script>
 
 <style scoped>
-#voltar {
-    background-color: transparent;
-    transition: 0.5s;
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border: none;
-    left: 10px;
-    top: 20px;
-    border-radius: 50%;
-}
-
-#voltar:hover {
-    background-color: rgba(0, 0, 0, 0.50);
-}
-
 #cadastrologin h1,
 #cadastrologin h2 {
 
