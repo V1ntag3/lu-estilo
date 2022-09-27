@@ -1,10 +1,10 @@
 <template>
     <img v-bind:src="image" alt="logo" id="logo">
 
-    <h2 id="titulo">
+    <p id="titulo">
         Olá, seja <br />
         bem-vindo.
-    </h2>
+    </p>
 
     <p id="sub-titulo">
         Antes de continuarmos, selecione uma de <br />
@@ -44,6 +44,8 @@ export default {
 
     color: #f2f2f2;
 }
+
+
 
 #sub-titulo {
     margin-bottom: 30px;

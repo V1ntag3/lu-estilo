@@ -1,16 +1,20 @@
 <template>
 
     <div id="navbar">
+        <router-link :to="{name:'PaginaLojaVoltar'}">
+            <div id="home">
+                <div id="icon-home"></div>
+                <h5>Página inicial</h5>
+            </div>
+        </router-link>
 
-        <div id="home">
-            <div id="icon-home"></div>
-            <h5>Página inicial</h5>
-        </div>
+        <router-link :to="{ name: 'CarrinhoDeProdutos'}">
+            <div id="carrinho">
+                <div id="icon-carrinho"></div>
+                <h5>Carrinho</h5>
+            </div>
+        </router-link>
 
-        <div id="carrinho">
-            <div id="icon-carrinho"></div>
-            <h5>Carrinho</h5>
-        </div>
 
         <div id="minha-conta">
             <div id="icon-conta"></div>
@@ -20,11 +24,33 @@
     </div>
 </template>
 
-<script>
+<script >
+
 
 </script>
 
 <style>
+#home,
+#carrinho,
+#minha-conta {
+    color: #395BB9;
+    filter: opacity(0.4)
+}
+
+
+
+#home:hover,
+#carrinho:hover,
+#minha-conta:hover {
+    width: 33.3%;
+    display: inline-block;
+    filter: opacity(1)
+}
+
+
+
+
+
 #navbar {
     text-align: left;
     bottom: 0;
@@ -35,7 +61,7 @@
     background: #FFFFFF;
 }
 
-#navbar #home,
+#home,
 #carrinho,
 #minha-conta {
     transition: 0.5s;
@@ -44,8 +70,9 @@
     height: 100%;
 }
 
-#navbar #carrinho,
-#minha-conta {
+#carrinho,
+#minha-conta,
+#home {
     cursor: pointer;
 }
 

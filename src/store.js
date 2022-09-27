@@ -1,5 +1,5 @@
 //stores/users.js
-
+import{toRaw} from 'vue'
 import { defineStore } from 'pinia'
 // Import axios to make HTTP requests
 import { http } from './services/config'
@@ -13,7 +13,9 @@ let pesquisaP  ='&ids='
 
 export const useUserStore = defineStore("user", {
   state: () => ({
-    slug:{},
+    slug: {
+      Type:String
+    },
     lojas: [],
     banner: {},
     currentLoja: [],
@@ -51,28 +53,51 @@ export const useUserStore = defineStore("user", {
             alert(error)
             console.log(error)
         }
-    }, async fetchDadosDaLoja(slug_da_loja) {
-        try {
-          
+      }, async fetchDadosDaLoja(slug_da_loja) {
+        if (slug_da_loja!=null) {
+           try {
+    
           const data = await http.get(lojas+slug_da_loja +'/'+format)
           this.currentLoja = data.data
           this.slug = slug_da_loja
-
           }
           catch (error) {
             alert(error)
             console.log(error)
         }
-    },async fetchCategorias(slug_da_loja) {
-        try {
-
-          const data = await http.get(categoria + slug_da_loja + '/' + format)
-        
-          this.categorias = data.data
+        } else {
+           try {
+    
+             
+    
+          const data = await http.get(lojas+this.slug +'/'+format)
+          this.currentLoja =toRaw( data.data)
           }
           catch (error) {
             alert(error)
             console.log(error)
+        }
+        }
+       
+      }, async fetchCategorias(slug_da_loja) {
+           if (slug_da_loja!=null) {
+           try {
+          const data = await http.get(categoria + slug_da_loja + '/' + format)
+            this.categorias = data.data
+          }
+          catch (error) {
+            alert(error)
+            console.log(error)
+        }
+        } else {
+           try {
+          const data = await http.get(categoria + this.slug +'/'+format)
+         this.categorias  =toRaw( data.data)
+          }
+          catch (error) {
+            alert(error)
+            console.log(error)
+        }
         }
       }, async fetchCurrentProduto(id) {
         try {

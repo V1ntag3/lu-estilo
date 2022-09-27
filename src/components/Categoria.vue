@@ -5,7 +5,7 @@
 
 
 
-        <Card v-for="produto in produtos" :key="produto.id" :short_description="produto.short_description"
+        <CardHome v-for="produto in produtos" :key="produto.id" :short_description="produto.short_description"
             :image="produto.images[0].image" :unit_price="produto.stocks[0].unit_price" :id="produto.id" />
 
 
@@ -15,12 +15,12 @@
 
 <script>
 import { toRaw } from 'vue'
-import Card from '@/components/Card.vue'
+import CardHome from '@/components/CardHome.vue'
 export default {
 
     name: 'CardItem',
     components: {
-        Card
+        CardHome
     },
     props: {
         categories: {
