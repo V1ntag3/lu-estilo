@@ -30,7 +30,6 @@ onMounted(() => {
     store.fetchDadosDaLoja(route.params.slug);
     store.fetchCategorias(route.params.slug)
 })
-console.log(dadosDaLoja)
 </script>
 <script >
 

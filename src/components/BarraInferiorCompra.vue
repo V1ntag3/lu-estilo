@@ -1,8 +1,8 @@
 <template>
     <div id="barra-inferior">
         <div id="valores">
-            <h2 id="preco">R$ 89,90</h2>
-            <h4 id="oferta">Ou até 3x de 29,97 sem juros</h4>
+            <h2 id="preco">R$ {{preco}}</h2>
+            <h4 id="oferta">Ou até 3x de {{preco/3}} sem juros</h4>
         </div>
         <h3 id="acao">
             Comprar
@@ -11,7 +11,13 @@
 </template>
 
 <script>
-
+export default {
+    props: {
+        preco: {
+            Type: Number
+        }
+    }
+}
 </script>
 <style>
 #barra-inferior {

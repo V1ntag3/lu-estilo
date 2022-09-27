@@ -1,35 +1,50 @@
 <template>
     <div id="descricao">
-        <h1 id="nome-do-produto">Nome do produto</h1>
+        <h1 id="nome-do-produto">{{nome}}</h1>
 
         <h5>Opções</h5>
 
         <div id="opcoes">
-            <button>Inox</button>
-            <button>Branca</button>
-            <button>Preta</button>
+            <button v-for="opcao in opcoes" :key="opcao.unit_price">{{opcao.unit_price}}</button>
         </div>
 
         <div id="separador"></div>
 
         <h5>Descrição</h5>
-        <h5>Aqui vai ter uma descrição completa do produto mostrando todas as especificações do mesmo. Aqui vai ter uma
-            descrição
-            completa do produto mostrando todas as especificações do mesmo. Aqui vai ter uma descrição completa do
-            produto mostrando
-            todas as especificações do mesmo.</h5>
+        <h5>{{descricao}}</h5>
         <div id="separador"></div>
         <div id="observacao">
             <h5>Você quer adicionar alguma observação?</h5>
             <input type="text" placeholder="Digite aqui...">
 
         </div>
-
     </div>
+    <BarraInferiorCompra />
 
 </template>
 <script>
-
+import BarraInferiorCompra from "./BarraInferiorCompra.vue";
+export default {
+    name: "DescricaoDoProdutoItem",
+    props: {
+        id: {
+            type: Number
+        },
+        nome: {
+            type: String
+        },
+        opcoes: {
+            type: Array,
+        },
+        descricao: {
+            type: String
+        },
+        produto: {
+            Type: Array
+        }
+    },
+    components: { BarraInferiorCompra }
+}
 </script>
 <style>
 #descricao {
@@ -60,8 +75,9 @@ h5 {
 }
 
 #opcoes {
+
     text-align: left;
-    ;
+    display: block;
 }
 
 #opcoes button {

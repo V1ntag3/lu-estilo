@@ -9,7 +9,7 @@ let lojas = 'lojas/'
 let format = '?format=json'
 let categoria = 'categorias/'
 let produtos = 'produtos/'
-let pesquisaP  ='?ids='
+let pesquisaP  ='&ids='
 
 export const useUserStore = defineStore("user", {
   state: () => ({
@@ -74,23 +74,18 @@ export const useUserStore = defineStore("user", {
             alert(error)
             console.log(error)
         }
-      }, async fetchCurrentProduto(id,slug_da_loja) {
+      }, async fetchCurrentProduto(id) {
         try {
-          const data = await http.get(produtos + slug_da_loja + '/' + pesquisaP + id +'/'+format)
-          
+          const data = await http.get(produtos + format + pesquisaP + id)
+          console.log
           this.currentProduto = data.data
+          console.log(produtos + format + pesquisaP + id)
         }
         catch (error) {
           alert(error)
           console.log(error)
         }
     },
-      updateCurrentLoja(loja) {
-        this.currentLoja = loja
-      },
-      updadeCurrentProduto(produto) {
-        this.currentProdudo = produto
-      },
       updadeCartProducts(produto) {
         this.cartProducts.push(produto)
       },
