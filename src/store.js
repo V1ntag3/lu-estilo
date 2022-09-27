@@ -77,9 +77,7 @@ export const useUserStore = defineStore("user", {
       }, async fetchCurrentProduto(id) {
         try {
           const data = await http.get(produtos + format + pesquisaP + id)
-          console.log
           this.currentProduto = data.data
-          console.log(produtos + format + pesquisaP + id)
         }
         catch (error) {
           alert(error)

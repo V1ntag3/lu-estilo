@@ -15,7 +15,8 @@
 
 body {
   text-align: center;
-  background: linear-gradient(226.95deg, #3F4C6B 100%, #606C88 0%);
+  background: linear-gradient(226.95deg, #606C88 0%, #3F4C6B 100%);
+
 }
 
 @font-face {
@@ -26,6 +27,6 @@ body {
 #app {
   font-family: "Poppins";
   font-style: normal;
-  color: #2c3e50;
+  height: 1vh;
 }
 </style>

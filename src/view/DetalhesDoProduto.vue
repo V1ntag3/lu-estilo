@@ -17,28 +17,30 @@
 
 import { useUserStore } from "../store";
 import { useRoute } from 'vue-router';
-import { onMounted, computed, toRaw } from 'vue';
+import { onMounted, computed } from 'vue';
 
 const route = useRoute();
 const store = useUserStore()
 
-// eslint-disable-next-line no-unused-vars
+const produtos = computed(() => {
+    return store.getCurrentProduto
+})
+
+//const produtos = toRaw(inter.value)
+//store.currentProduto = produtos
 
 
-// eslint-disable-next-line no-unused-vars
-const inter = computed(() => {
-    return store.currentProduto
-}
-)
-
+console.log(produtos)
 onMounted(() => {
     store.fetchCurrentProduto(route.params.id);
 
 })
-
-const produtos = toRaw(inter.value)
-console.log(produtos)
 </script>
+
+
+
+
+
 <script>
 import BotaoDeVoltar from "../components/BotaoDeVoltar.vue";
 import BannerProduto from "../components/BannerProduto.vue";

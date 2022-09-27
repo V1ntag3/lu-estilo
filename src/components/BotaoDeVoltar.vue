@@ -1,12 +1,18 @@
 <template>
-    <button id="voltar">
+    <button id="voltar" v-on:click="goBack">
         <img src="../assets/setadevoltar.png" alt="">
     </button>
 
 </template>
 
 <script>
-
+export default {
+    methods: {
+        goBack: function () {
+            window.history.back()
+        }
+    }
+}
 </script>
 <style>
 #voltar {
