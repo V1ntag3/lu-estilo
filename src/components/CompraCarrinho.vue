@@ -14,7 +14,7 @@
             <p id="c-compra4">Valor da entrega </p>
             <p id="c-compra5">A calcular</p>
         </div>
-        <div id="subcontainercompra2">
+        <div id="subcontainercompra3">
             <p id="c-compra6">Valor total </p>
             <p id="c-compra7">preco</p>
         </div>
@@ -40,8 +40,11 @@ export default {
 }
 
 #separador {
-    margin-top: 60px;
-    margin-bottom: 60px;
+    background: #343435;
+    height: 1px;
+    margin: 60px auto;
+    width: 96%;
+
 }
 
 #containercompra {
@@ -110,7 +113,7 @@ export default {
 
     color: #FFFFFF;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 65px;
 }
 
 #c-compra2,

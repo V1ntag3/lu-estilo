@@ -2,7 +2,7 @@
     <div id="pesquisar-container">
         <img src="../assets/pesquisar.png" alt="" id="icon-pesquisar">
 
-        <input v-model="pesquisa" type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui">
+        <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui">
 
     </div>
 

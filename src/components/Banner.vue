@@ -21,4 +21,8 @@ export default {
     width: 100%;
     height: 43vw;
 }
+
+#banner img {
+    object-fit: cover
+}
 </style>

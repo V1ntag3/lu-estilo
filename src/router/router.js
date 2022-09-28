@@ -4,7 +4,10 @@ import DetalhesDoProduto from "../view/DetalhesDoProduto.vue"
 import SelecionarUnidade from "@/view/SelecionarUnidade.vue";
 import CarrinhoDeProdutos from "@/view/CarrinhoDeProdutos.vue"
 import CadastroLogin from "@/view/CadastroLogin.vue"
-import LoginDaLoja from "@/view/LoginDaLoja.vue"
+import LoginNaLoja from "@/view/LoginNaLoja.vue"
+import CadastroPasso1 from "@/view/CadastroPasso1.vue"
+import CadastroPasso2 from "@/view/CadastroPasso2.vue"
+import CadastroPasso3 from "@/view/CadastroPasso3.vue"
 const routes = [
   {
     path: "/",
@@ -33,7 +36,16 @@ const routes = [
     name: "CadastroLogin",component: CadastroLogin
   }, {
       path: "/login",
-    name: "LoginDaLoja",component: LoginDaLoja
+    name: "LoginNaLoja",component: LoginNaLoja
+  }, {
+      path: "/cadastro",
+    name: "CadastroPasso1",component: CadastroPasso1
+  }, {
+      path: "/cadastro",
+    name: "CadastroPasso2",component: CadastroPasso2
+  }, {
+      path: "/cadastro",
+    name: "CadastroPasso3",component: CadastroPasso3
   }
 ];
 

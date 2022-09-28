@@ -1,7 +1,7 @@
 <template>
     <div id="barra-inferior">
         <div id="valores">
-            <h2 id="preco">R$ {{preco}}</h2>
+            <h2 id="preco-produto">R$ {{preco}}</h2>
             <h4 id="oferta">Ou até 3x de {{preco/3}} sem juros</h4>
         </div>
         <h3 id="acao">
@@ -37,7 +37,8 @@ export default {
     display: inline-block;
 }
 
-#preco {
+#preco-produto {
+    color: white;
     font-weight: 600;
     font-size: 20px;
     line-height: 32px;

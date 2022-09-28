@@ -50,7 +50,7 @@ export default {
     text-align: left;
     margin-left: 10px;
     margin-top: 20px;
-    margin-bottom: 5px;
+    margin-bottom: 0px;
 
 }
 

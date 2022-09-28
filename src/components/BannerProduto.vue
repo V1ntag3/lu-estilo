@@ -1,6 +1,6 @@
 <template>
 
-    <div id="banner">
+    <div id="banner-produto">
     </div>
 
 </template>
@@ -9,9 +9,13 @@
 
 </script>
 <style>
-#banner {
+#banner-produto {
     background-color: white;
     width: 100%;
     height: 300px;
+}
+
+#banner-produto {
+    object-fit: cover
 }
 </style>

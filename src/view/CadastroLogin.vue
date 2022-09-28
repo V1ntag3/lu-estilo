@@ -4,12 +4,12 @@
 
         <h1>Acesse sua conta ou <br>cadastre-se!</h1>
         <h2>Para continuar o processo de compra, escolha uma das opções abaixo.</h2>
-        <router-link :to="{name: 'LoginDaLoja'}">
+        <router-link :to="{name: 'LoginNaLoja'}">
             <button id="login">Já sou cliente</button>
         </router-link>
-
-        <button id="registrar">Criar nova conta</button>
-
+        <router-link :to="{name: 'CadastroPasso1'}">
+            <button id="registrar">Criar nova conta</button>
+        </router-link>
 
     </div>
 </template>

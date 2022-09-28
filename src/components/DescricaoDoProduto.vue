@@ -2,25 +2,26 @@
     <div id="descricao">
         <h1 id="nome-do-produto">{{nome}}</h1>
 
-        <h5>Opções</h5>
+        <h5 id="opcoes-prod">Opções</h5>
 
         <div id="opcoes">
             <button v-for="opcao in opcoes" :key="opcao.unit_price">{{opcao.unit_price}}</button>
         </div>
 
-        <div id="separador"></div>
+        <div id="separador-prod"></div>
 
-        <h5>Descrição</h5>
-        <h5>{{descricao}}</h5>
-        <div id="separador"></div>
+        <h5 id="descricao-prod">Descrição</h5>
+        <h5 id="descricao-prod-sub">{{descricao}}</h5>
+        <div id="separador-prod"></div>
         <div id="observacao">
-            <h5>Você quer adicionar alguma observação?</h5>
+            <h5 id="observacao-prod">Você quer adicionar alguma observação?</h5>
             <input type="text" placeholder="Digite aqui...">
         </div>
     </div>
     <BarraInferiorCompra />
 
 </template>
+
 <script>
 import BarraInferiorCompra from "./BarraInferiorCompra.vue";
 export default {
@@ -64,19 +65,23 @@ export default {
 }
 
 h5 {
-    margin-bottom: 10px;
     text-align: left;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
-    color: rgba(255, 255, 255, 0.8);
+
+
 }
 
 #opcoes {
-
     text-align: left;
     display: block;
+}
+
+#opcoes-prod {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.0075em;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 15px;
 }
 
 #opcoes button {
@@ -98,12 +103,53 @@ h5 {
     background: rgba(0, 0, 0, 0.50);
 }
 
-#separador {
-    background-color: black;
+#separador-prod {
+
+    background: #343435;
     height: 1px;
-    margin: 20px auto;
-    border-color: black;
+    margin: 25px auto;
     width: 96%;
+}
+
+#descricao-prod {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    letter-spacing: 0.0075em;
+
+    /* White / 80% */
+
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 10px;
+}
+
+#descricao-prod-sub {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    /* or 175% */
+
+    letter-spacing: 0.0075em;
+
+    /* White / 100% */
+
+    color: #FFFFFF;
+}
+
+#observacao-prod {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    /* identical to box height, or 171% */
+
+    letter-spacing: 0.0075em;
+
+    /* White / 100% */
+
+    color: #FFFFFF;
+    margin-bottom: 10px;
 }
 
 input {
@@ -120,12 +166,7 @@ input {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    /* identical to box height, or 171% */
-
     letter-spacing: 0.0075em;
-
-    /* text / labels */
-
     color: #6E7191;
 }
 </style>

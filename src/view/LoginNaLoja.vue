@@ -1,5 +1,5 @@
 <template>
-    <BotaoDeVoltarX />
+    <BotaoDeVoltarBranco />
     <div id="login-view">
 
         <FormularioLogin />
@@ -8,11 +8,11 @@
 </template>
 
 <script>
-import BotaoDeVoltarX from '@/components/BotaoDeVoltarX.vue';
+import BotaoDeVoltarBranco from '@/components/BotaoDeVoltarBranco.vue';
 import FormularioLogin from '@/components/FormularioLogin.vue';
 export default {
     name: "LoginDaLoja",
-    components: { BotaoDeVoltarX, FormularioLogin }
+    components: { BotaoDeVoltarBranco, FormularioLogin }
 }
 </script>
 

@@ -24,7 +24,7 @@ export default {
 #tituloCar {
     margin-top: 60px;
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 
     font-weight: 700;
     font-size: 32px;
