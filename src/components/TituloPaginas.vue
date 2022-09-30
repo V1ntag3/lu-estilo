@@ -1,16 +1,16 @@
 <template>
     <div id="container-titulo-gen">
-        <div id="titulo-gen">
+        <div id="titulo-gen" class="letra-700-24-32-001">
             <p>
                 {{titulo}}
             </p>
         </div>
-        <div id="subtitulo-gen">
+        <div id="subtitulo-gen" class="letra-400-14-24-00075">
             <p>
                 {{subtitulo}}
             </p>
         </div>
-        <div id="titulo-form-gen">
+        <div id="titulo-form-gen" class="letra-700-24-32-001">
             <p>
                 {{tituloForm}}
             </p>
@@ -39,34 +39,21 @@ export default {
     text-align: left;
     margin-left: 20px;
     margin-top: 75px;
+    color: #ffffff;
 }
 
 #titulo-gen {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: 0.01em;
-    color: #ffffff;
+
     margin-bottom: 5px;
 }
 
 #subtitulo-gen {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
     display: flex;
     align-items: center;
-    letter-spacing: 0.0075em;
-    color: #ffffff;
     margin-bottom: 10px;
 }
 
 #titulo-form-gen {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 32px;
-    letter-spacing: 0.01em;
-    color: #ffffff;
     margin-bottom: -10px;
 }
 </style>

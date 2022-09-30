@@ -2,15 +2,13 @@
     <router-link :to="{ name: 'PaginaLoja' , params: {slug: loja.slug }}">
         <div id="container">
             <div id="localizacao">
-                <div id="icon-loc" width="30px" height="30px"></div>
+                <i class="bi bi-geo-alt-fill" id="icon-loc" width="30px" height="30px" style=" color: #395BB9"></i>
                 <div id="sub-container-loc">
                     <p id="nome-loja">{{name}}</p>
                     <p id="endereco">{{street}}, {{number}}</p>
                 </div>
                 <div id="seta"></div>
             </div>
-
-
         </div>
     </router-link>
 </template>
@@ -48,8 +46,6 @@ export default {
     transition: 0.5s;
     cursor: pointer;
     margin-bottom: 10px;
-    padding: 12px 16px;
-    gap: 106px;
     width: 382px;
     height: 76px;
     background: #ffffff;
@@ -57,17 +53,17 @@ export default {
 }
 
 #localizacao:hover {
-    background: #a1a9bb;
+    filter: opacity(0.4);
 }
 
 #icon-loc {
     background-repeat: no-repeat;
-    background-image: url(../assets/coolicon.png);
     width: 14px;
     height: 18px;
+    position: relative;
     display: inline-block;
-    margin-bottom: 10px;
-    margin-left: 10px;
+    top: -10px;
+    margin-left: 20px;
 }
 
 #sub-container-loc {
@@ -100,7 +96,7 @@ export default {
 #seta {
     background-repeat: no-repeat;
     background-image: url(../assets/coolicon2.png);
-    margin-left: 110px;
+    margin-left: 90px;
     margin-bottom: 10px;
     display: inline-block;
     width: 7.42px;

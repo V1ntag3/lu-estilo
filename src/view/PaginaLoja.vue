@@ -3,7 +3,7 @@
     <div id="fundo">
         <Banner :image="dadosDaLoja.banner" />
 
-        <PesquisarItem />
+        <InputPesquisar />
 
         <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
             :products="categoria.products" />
@@ -38,13 +38,13 @@ onMounted(() => {
 
 <script >
 import Banner from "@/components/Banner.vue";
-import PesquisarItem from "@/components/PesquisarItem.vue"
+import InputPesquisar from "@/components/InputPesquisar.vue"
 import Categoria from "@/components/Categoria.vue";
 import NavbarInferior from "../components/NavbarInferior.vue";
 
 export default {
     components: {
-        Banner, PesquisarItem, Categoria, NavbarInferior
+        Banner, InputPesquisar, Categoria, NavbarInferior
     }
 }
 </script>

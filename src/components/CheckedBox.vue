@@ -1,8 +1,7 @@
 <template>
     <div id="chekeds">
-        <input type="radio" name="endereco" value="" />
-        <p>{{titulo}}</p>
-
+        <input type="radio" name="endereco" value="" id="" />
+        <label for="">{{titulo}}</label>
     </div>
 </template>
 <script>
@@ -30,12 +29,12 @@ export default {
     width: 16px;
     display: inline-block;
     position: relative;
-    top: 10px;
+    top: 5px;
     cursor: pointer;
 
 }
 
-#chekeds p {
+#chekeds label {
     padding: 10px 0px;
     margin-left: 25px;
     position: relative;
@@ -46,7 +45,7 @@ export default {
     line-height: 28px;
     letter-spacing: 0.0075em;
     color: #4E4B66;
-    top: 0px;
+    top: 2px;
     text-align: left;
 }
 </style>

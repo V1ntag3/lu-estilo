@@ -1,6 +1,6 @@
 <template>
-    <button id="voltar" v-on:click="goBack">
-        <img src="../assets/fechar.png" alt="">
+    <button id="voltar-x" v-on:click="goBack">
+        <i class="bi bi-x-lg" style="color:#FFFFFF;"></i>
     </button>
 
 </template>
@@ -16,19 +16,19 @@ export default {
 </script>
 
 <style>
-#voltar {
+#voltar-x {
     background-color: transparent;
     transition: 0.5s;
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     border: none;
     left: 10px;
-    top: 20px;
+    top: 10px;
     border-radius: 50%;
 }
 
-#voltar:hover {
+#voltar-x:hover {
     background-color: rgba(0, 0, 0, 0.50);
 }
 </style>

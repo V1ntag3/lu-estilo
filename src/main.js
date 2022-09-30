@@ -2,8 +2,16 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia'
 import App from './App.vue';
 import router from './router/router'
-
-const pinia = createPinia()
 const app = createApp(App);
 
-app.use(pinia).use(router).mount('#app');
+import maska from 'maska'
+app.use(maska)
+const pinia = createPinia()
+
+
+app.use(pinia)
+app.use(router)
+
+
+
+    app.mount('#app');

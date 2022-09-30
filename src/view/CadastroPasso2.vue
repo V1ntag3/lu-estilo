@@ -11,13 +11,13 @@
             <input type="text" placeholder="Insira o seu nome aqui...">
 
             <label for="">CPF</label>
-            <input type="text" placeholder="Insira o seu CPF aqui...">
+            <input placeholder="Insira o seu CPF aqui..." v-maska="'###.###.###-##'">
 
             <label for="">Data de nascimento</label>
-            <input type="date">
+            <input type="date" placeholder="00/00/0000">
 
             <label for="">Telefone</label>
-            <input type="tel" placeholder="(00) 00000 - 0000">
+            <input type="tel" placeholder="(00) 00000 - 0000" v-maska="'(##) ##### - ####'">
             <router-link :to="{name: 'CadastroPasso3'}">
                 <input type="submit" value="Próximo">
             </router-link>

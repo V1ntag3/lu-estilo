@@ -15,8 +15,6 @@ export default {
 #botao-laranja {
     transition: 0.5s;
     cursor: pointer;
-    font-family: 'Poppins';
-    font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;

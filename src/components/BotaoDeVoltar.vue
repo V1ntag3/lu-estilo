@@ -17,7 +17,7 @@ export default {
 <style>
 #voltar {
     transition: 0.5s;
-    background-color: white;
+    background-color: transparent;
     position: absolute;
     width: 50px;
     height: 50px;
@@ -28,6 +28,10 @@ export default {
 }
 
 #voltar:hover {
-    background-color: rgba(0, 0, 0, 0.50);
+    filter: opacity(0.4);
+}
+
+#voltar img {
+    margin-top: 6px;
 }
 </style>

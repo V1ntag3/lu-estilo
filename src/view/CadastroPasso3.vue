@@ -8,7 +8,7 @@
     <div class="formulario-cadas">
         <form action="">
             <label for="">Telefone</label>
-            <input type="text" placeholder="(XX) XXXXX - XXXX">
+            <input placeholder="(XX) XXXXX - XXXX" v-maska="'(##) ##### - ####'">
 
             <label for="">Senha</label>
             <input type="password" placeholder="Insira sua senha aqui...">
@@ -33,7 +33,3 @@ export default {
     }
 }
 </script>
-
-<style>
-
-</style>

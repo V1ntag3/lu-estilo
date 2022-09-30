@@ -17,8 +17,7 @@
 <style>
 #card-item {
     cursor: pointer;
-    cursor: pointer;
-    margin: 0 auto;
+    margin: 20px auto;
     max-width: 382px;
     max-height: 116px;
     transition: 0.5s;
@@ -83,7 +82,6 @@
 }
 
 #card-delete {
-
     margin-left: 115px;
     margin-bottom: 30px;
 }

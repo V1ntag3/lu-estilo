@@ -5,7 +5,7 @@
     <CheckedBox :titulo="'Sim'" />
     <CheckedBox :titulo="'Não'" />
 
-    <InputPadrao :titulo="'Troco pra quanto?'" />
+    <InputPadrao :titulo="'Troco pra quanto? '" />
 </template>
 <script>
 import TituloPaginas from "@/components/TituloPaginas.vue";

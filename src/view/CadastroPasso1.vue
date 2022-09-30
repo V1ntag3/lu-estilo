@@ -8,7 +8,7 @@
         <div class="formulario-cadas">
             <form action="">
                 <label for="">CEP</label>
-                <input type="number" placeholder="Insira seu CEP aqui...">
+                <input placeholder="Insira seu CEP aqui..." v-maska="'#####-###'" v-model="cep">
 
                 <label for="">Rua</label>
                 <input type="text" placeholder="Insira a rua aqui...">
@@ -40,6 +40,10 @@ export default {
     components: {
         TituloPaginas,
         BotaoDeVoltarBranco
+    }, data() {
+        return {
+            cep: ""
+        }
     }
 }
 </script>

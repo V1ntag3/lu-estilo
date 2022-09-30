@@ -42,20 +42,6 @@ export default {
 }
 </script>
 <style>
-#finalizar-compra {
-    margin: 20px;
-    margin-top: 30px;
-}
-
-#subtitulo-finalizar {
-    text-align: left;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.0075em;
-    color: rgba(255, 255, 255, 0.8);
-}
-
 #adicionar-endereco {
     transition: 00.5s;
     cursor: pointer;

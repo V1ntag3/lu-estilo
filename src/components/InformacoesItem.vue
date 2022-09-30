@@ -41,12 +41,9 @@ export default {
     padding-top: 10px;
     padding-bottom: 10px;
     color: #4E4B66;
-
     font-weight: 600;
     font-size: 16px;
     line-height: 28px;
-    /* or 175% */
-
     letter-spacing: 0.0075em;
 
 }

@@ -33,7 +33,6 @@ export default {
     font-size: 32px;
     line-height: 36px;
     letter-spacing: 0.01em;
-
     color: #f2f2f2;
 }
 

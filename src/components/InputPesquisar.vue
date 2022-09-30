@@ -1,7 +1,7 @@
 <template>
     <div id="pesquisar-container">
-        <img src="../assets/pesquisar.png" alt="" id="icon-pesquisar">
 
+        <i class="bi bi-search" id="icon-pesquisar" style=" color: #395BB9"></i>
         <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui">
 
     </div>
@@ -20,7 +20,7 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
-    width: 430px;
+    width: 382px;
     height: 56px;
 
     display: inline-block;
@@ -29,11 +29,13 @@
 }
 
 #icon-pesquisar {
-    margin-top: 10px;
-    margin-bottom: -5px;
-    margin-left: 20px;
-
+    margin: 10px 0px -5px 20px;
     display: inline-block;
+
+}
+
+#icon-pesquisar i {
+    color: #395BB9;
 }
 
 #pesquisar {
@@ -43,7 +45,7 @@
 
     display: inline-block;
 
-    width: 380px;
+    width: 330px;
     height: 56px;
 
     background: white;

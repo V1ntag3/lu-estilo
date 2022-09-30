@@ -8,7 +8,7 @@
             <BotaoLaranja :acao="'Já sou cliente'" />
         </router-link>
         <router-link :to="{name: 'CadastroPasso1'}">
-            <button id="registrar">Criar nova conta</button>
+            <button id="registrar" class="letra-600-14-24-00075">Criar nova conta</button>
         </router-link>
 
     </div>
@@ -52,13 +52,7 @@ export default {
     color: #FFFFFF;
 }
 
-#registrar {}
-
-
 #registrar {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
     color: white;
     transition: 0.5s;
 
@@ -67,7 +61,8 @@ export default {
     width: 382px;
     height: 56px;
 
-    margin: 20px;
+    margin-top: 20px;
+
     border: none;
     background: transparent;
     border: 2px solid white;

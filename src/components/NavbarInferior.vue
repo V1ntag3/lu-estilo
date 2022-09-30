@@ -3,21 +3,23 @@
 
         <router-link :to="{name:'PaginaLojaVoltar'}">
             <div id="home">
-                <div id="icon-home"></div>
+                <i class="bi bi-house" id="icon-home"></i>
+
                 <h5>Página inicial</h5>
             </div>
         </router-link>
 
         <router-link :to="{ name: 'CarrinhoDeProdutos'}">
             <div id="carrinho">
-                <div id="icon-carrinho"></div>
+                <i class="bi bi-cart" id="icon-carrinho"></i>
+
                 <h5>Carrinho</h5>
             </div>
         </router-link>
 
         <router-link :to="{ name: 'CadastroLogin'}">
             <div id="minha-conta">
-                <div id="icon-conta"></div>
+                <i class="bi bi-person"></i>
                 <h5>Conta</h5>
             </div>
         </router-link>
@@ -37,7 +39,7 @@ console.log(toRaw(isLogged).value)
 
 <style>
 #navbar {
-    text-align: left;
+
     bottom: 0;
     position: fixed;
     padding: 0px;
@@ -50,7 +52,12 @@ console.log(toRaw(isLogged).value)
 #carrinho,
 #minha-conta {
     color: #395BB9;
-    filter: opacity(0.4)
+    filter: opacity(0.4);
+    transition: 0.5s;
+    width: 33.3%;
+    display: inline-block;
+    height: 100%;
+    cursor: pointer;
 }
 
 #home:hover,
@@ -61,23 +68,7 @@ console.log(toRaw(isLogged).value)
     filter: opacity(1)
 }
 
-#home,
-#carrinho,
-#minha-conta {
-    transition: 0.5s;
-    width: 33.3%;
-    display: inline-block;
-    height: 100%;
-}
-
-#carrinho,
-#minha-conta,
-#home {
-    cursor: pointer;
-}
-
 #navbar h5 {
-
     font-weight: 600;
     font-size: 12px;
     line-height: 18px;
@@ -86,33 +77,7 @@ console.log(toRaw(isLogged).value)
     color: #395BB9;
 }
 
-#icon-home {
-    margin: 0 auto;
+.bi::before {
     margin-top: 10px;
-    margin-bottom: 5px;
-    background: no-repeat;
-    background-image: url(../assets/home.png);
-    width: 16px;
-    height: 18.59px;
-}
-
-#icon-carrinho {
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    background: no-repeat;
-    background-image: url(../assets/carrinho.png);
-    width: 20px;
-    height: 19px;
-}
-
-#icon-conta {
-    margin: 0 auto;
-    margin-top: 10px;
-    margin-bottom: 5px;
-    background: no-repeat;
-    background-image: url(../assets/conta.png);
-    width: 16px;
-    height: 19px;
 }
 </style>

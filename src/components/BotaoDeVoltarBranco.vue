@@ -1,5 +1,5 @@
 <template>
-    <button id="voltar" v-on:click="goBack">
+    <button id="voltar-branco" v-on:click="goBack">
         <img src="../assets/botaodevoltarbranco.png" alt="">
     </button>
 
@@ -15,22 +15,22 @@ export default {
 }
 </script>
 <style>
-#voltar {
+#voltar-branco {
     transition: 0.5s;
+    background: transparent;
     position: absolute;
     width: 50px;
     height: 50px;
     border: none;
     left: 10px;
     top: 20px;
-    border-radius: 50%;
 }
 
-#voltar:hover {
-    background-color: rgba(0, 0, 0, 0.50);
+#voltar-branco:hover {
+    filter: opacity(0.4);
 }
 
-#voltar img {
+#voltar-branco img {
     margin-top: 6px;
 }
 </style>

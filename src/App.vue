@@ -13,12 +13,19 @@
   padding: 0px;
   font-family: "Poppins";
   font-style: normal;
+  background: transparent;
 }
 
 body {
   background: linear-gradient(226.95deg, #606C88 0%, #3F4C6B 100%);
   text-align: center;
 
+}
+
+input {
+  font-family: "Poppins";
+  font-style: normal;
+  background: #FFFFFF;
 }
 
 #app {
@@ -46,7 +53,7 @@ body {
   line-height: 24px;
   letter-spacing: 0.0075em;
   color: #6e7191;
-  width: 382px;
+  width: 96%;
   height: 48px;
   margin: 0px auto;
   margin-top: 5px;
@@ -67,7 +74,7 @@ body {
   text-align: center;
   letter-spacing: 0.0075em;
   color: #ffffff;
-  width: 405px;
+  width: 100%;
   flex: none;
   order: 0;
   flex-grow: 1;
@@ -118,6 +125,28 @@ body {
   width: 96%;
 
 }
+
+.letra-700-24-32-001 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0.01em;
+}
+
+.letra-600-14-24-00075 {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.0075em;
+}
+
+.letra-400-14-24-00075 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.0075em;
+}
+
 
 @media (min-width: 600px) {
   form input {

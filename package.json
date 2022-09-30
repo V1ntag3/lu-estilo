@@ -10,8 +10,11 @@
   "dependencies": {
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
+    "maska": "^1.5.0",
     "pinia": "^2.0.22",
+    "v-mask": "^2.3.0",
     "vue": "^3.2.13",
+    "vue-mask-directive": "^1.0.4",
     "vue-resource": "^1.5.3",
     "vue-router": "^4.1.5",
     "vuex": "^4.0.2",
@@ -38,9 +41,7 @@
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {
-      
-    }
+    "rules": {}
   },
   "browserslist": [
     "> 1%",

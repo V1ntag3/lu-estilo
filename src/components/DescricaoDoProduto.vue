@@ -49,7 +49,7 @@ export default {
 <style>
 #descricao {
     margin: 0 15px;
-    padding-bottom: 100px;
+    padding-bottom: 150px;
 }
 
 #nome-do-produto {
@@ -102,7 +102,6 @@ export default {
 }
 
 #separador-prod {
-
     background: #343435;
     height: 1px;
     margin: 25px auto;
@@ -113,12 +112,7 @@ export default {
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
-    /* identical to box height, or 171% */
-
     letter-spacing: 0.0075em;
-
-    /* White / 80% */
-
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 10px;
 }
@@ -127,12 +121,7 @@ export default {
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
-    /* or 175% */
-
     letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
     color: #FFFFFF;
 }
 </style>

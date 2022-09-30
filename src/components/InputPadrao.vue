@@ -1,7 +1,7 @@
 <template>
     <div id="observacao">
         <h5 id="observacao-prod">{{titulo}}</h5>
-        <input type="text" placeholder="Digite aqui...">
+        <input type="text" class="letra-400-14-24-00075" placeholder="Digite aqui...">
     </div>
 
 </template>
@@ -19,12 +19,7 @@ export default {
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
-    /* identical to box height, or 171% */
-
     letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
     color: #FFFFFF;
     margin-bottom: 10px;
 }
@@ -37,10 +32,6 @@ export default {
     background: #FFFFFF;
     border-radius: 4px;
     border: none;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.0075em;
     color: #6E7191;
 }
 </style>
