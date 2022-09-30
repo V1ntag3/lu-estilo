@@ -2,11 +2,10 @@
 
     <BotaoDeVoltarBranco />
 
-
-    <TituloCadastro :titulo=" 'Passo 3 de 3' " :subtitulo="'Confirme o seus dados para acesso'"
+    <TituloPaginas :titulo=" 'Passo 3 de 3' " :subtitulo="'Confirme o seus dados para acesso'"
         :tituloForm="'Dados para acesso'" />
-    <div id="formulario-cad">
 
+    <div class="formulario-cadas">
         <form action="">
             <label for="">Telefone</label>
             <input type="text" placeholder="(XX) XXXXX - XXXX">
@@ -20,23 +19,21 @@
                 <input type="submit" value="Próximo">
             </router-link>
         </form>
-
-
     </div>
-
-
 </template>
+
 <script >
-import TituloCadastro from "@/components/TituloCadastro.vue";
+import TituloPaginas from "@/components/TituloPaginas.vue";
 import BotaoDeVoltarBranco from "@/components/BotaoDeVoltarBranco.vue";
 
 export default {
     components: {
-        TituloCadastro,
+        TituloPaginas,
         BotaoDeVoltarBranco
     }
 }
 </script>
+
 <style>
 
 </style>

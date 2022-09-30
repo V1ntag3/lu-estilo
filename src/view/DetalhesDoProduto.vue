@@ -1,8 +1,6 @@
 <template>
     <BotaoDeVoltar />
-
     <BannerProduto />
-
     <DescricaoDoProduto v-for="produto in produtos" :key="produto.id" :id="produto.id" :nome="produto.short_description"
         :opcoes="produto.stocks" :descricao="produto.description" :produto="produto" />
 </template>

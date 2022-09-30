@@ -13,10 +13,9 @@
         <h5 id="descricao-prod">Descrição</h5>
         <h5 id="descricao-prod-sub">{{descricao}}</h5>
         <div id="separador-prod"></div>
-        <div id="observacao">
-            <h5 id="observacao-prod">Você quer adicionar alguma observação?</h5>
-            <input type="text" placeholder="Digite aqui...">
-        </div>
+
+        <InputPadrao :titulo="'Você quer adicionar alguma observação?'" />
+
     </div>
     <BarraInferiorCompra />
 
@@ -24,6 +23,7 @@
 
 <script>
 import BarraInferiorCompra from "./BarraInferiorCompra.vue";
+import InputPadrao from "./InputPadrao.vue";
 export default {
     name: "DescricaoDoProdutoItem",
     props: {
@@ -43,7 +43,7 @@ export default {
             Type: Array
         }
     },
-    components: { BarraInferiorCompra }
+    components: { BarraInferiorCompra, InputPadrao }
 }
 </script>
 <style>
@@ -64,10 +64,8 @@ export default {
     color: #FFFFFF;
 }
 
-h5 {
+#descricao h5 {
     text-align: left;
-
-
 }
 
 #opcoes {
@@ -136,37 +134,5 @@ h5 {
     /* White / 100% */
 
     color: #FFFFFF;
-}
-
-#observacao-prod {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    /* identical to box height, or 171% */
-
-    letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
-    color: #FFFFFF;
-    margin-bottom: 10px;
-}
-
-input {
-    padding: 12px 0px 12px 16px;
-    gap: 10px;
-    width: 96%;
-    height: 48px;
-    background: #FFFFFF;
-    border-radius: 4px;
-    border: none;
-
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.0075em;
-    color: #6E7191;
 }
 </style>

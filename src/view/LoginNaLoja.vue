@@ -1,10 +1,6 @@
 <template>
     <BotaoDeVoltarBranco />
-    <div id="login-view">
-
-        <FormularioLogin />
-
-    </div>
+    <FormularioLogin />
 </template>
 
 <script>
@@ -15,9 +11,3 @@ export default {
     components: { BotaoDeVoltarBranco, FormularioLogin }
 }
 </script>
-
-<style>
-#login-view {
-    margin: 0px 20px;
-}
-</style>

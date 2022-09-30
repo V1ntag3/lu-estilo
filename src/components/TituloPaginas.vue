@@ -1,17 +1,24 @@
 <template>
-
     <div id="container-titulo-gen">
         <div id="titulo-gen">
-            {{titulo}}
+            <p>
+                {{titulo}}
+            </p>
         </div>
         <div id="subtitulo-gen">
-            {{subtitulo}}
+            <p>
+                {{subtitulo}}
+            </p>
         </div>
         <div id="titulo-form-gen">
-            {{tituloForm}}
+            <p>
+                {{tituloForm}}
+            </p>
+
         </div>
     </div>
 </template>
+
 <script>
 export default {
     props: {
@@ -23,10 +30,10 @@ export default {
         }, tituloForm: {
             Type: String
         }
-
     }
 }
 </script>
+
 <style>
 #container-titulo-gen {
     text-align: left;
@@ -38,12 +45,7 @@ export default {
     font-weight: 700;
     font-size: 24px;
     line-height: 32px;
-    /* identical to box height, or 133% */
-
     letter-spacing: 0.01em;
-
-    /* White / 100% */
-
     color: #ffffff;
     margin-bottom: 5px;
 }
@@ -52,14 +54,9 @@ export default {
     font-weight: 400;
     font-size: 14px;
     line-height: 24px;
-    /* identical to box height, or 171% */
-
     display: flex;
     align-items: center;
     letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
     color: #ffffff;
     margin-bottom: 10px;
 }
@@ -68,12 +65,7 @@ export default {
     font-weight: 700;
     font-size: 24px;
     line-height: 32px;
-    /* identical to box height, or 133% */
-
     letter-spacing: 0.01em;
-
-    /* White / 100% */
-
     color: #ffffff;
     margin-bottom: -10px;
 }

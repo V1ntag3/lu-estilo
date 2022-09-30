@@ -5,7 +5,7 @@
         <h1>Acesse sua conta ou <br>cadastre-se!</h1>
         <h2>Para continuar o processo de compra, escolha uma das opções abaixo.</h2>
         <router-link :to="{name: 'LoginNaLoja'}">
-            <button id="login">Já sou cliente</button>
+            <BotaoLaranja :acao="'Já sou cliente'" />
         </router-link>
         <router-link :to="{name: 'CadastroPasso1'}">
             <button id="registrar">Criar nova conta</button>
@@ -16,9 +16,10 @@
 
 <script>
 import BotaoDeVoltarX from '@/components/BotaoDeVoltarX.vue';
+import BotaoLaranja from '@/components/BotaoLaranja.vue';
 export default {
     components: {
-        BotaoDeVoltarX
+        BotaoDeVoltarX, BotaoLaranja
     }
 }
 </script>
@@ -26,7 +27,6 @@ export default {
 <style scoped>
 #cadastrologin h1,
 #cadastrologin h2 {
-
     text-align: left;
     margin: 0 20px;
     color: #FFFFFF;
@@ -52,35 +52,22 @@ export default {
     color: #FFFFFF;
 }
 
-#login,
+#registrar {}
+
+
 #registrar {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: white;
     transition: 0.5s;
+
     display: inline-block;
     padding: 16px 112px;
-    gap: 10px;
-    width: 96%;
-    margin: 5px;
-}
+    width: 382px;
+    height: 56px;
 
-#login {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    color: white;
-    border: none;
-    background: #E74845;
-    border-radius: 4px;
-}
-
-#registrar {
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    color: white;
+    margin: 20px;
     border: none;
     background: transparent;
     border: 2px solid white;
@@ -93,27 +80,23 @@ export default {
 }
 
 @media (min-width: 1000px) {
-    div {
+    #cadastrologin {
         text-align: left;
         margin-left: 20px;
     }
 
-    h1,
-    h2 {
+    #cadastrologin h1,
+    #cadastrologin h2 {
         margin-left: 0px;
     }
 
-    #login,
     #registrar {
-        margin-left: 0px;
-
+        margin-left: 10px;
         text-align: left;
         display: inline-block;
         padding: 16px 112px;
         gap: 10px;
         width: 350px;
     }
-
-
 }
 </style>

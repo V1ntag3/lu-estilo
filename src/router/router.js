@@ -8,6 +8,9 @@ import LoginNaLoja from "@/view/LoginNaLoja.vue"
 import CadastroPasso1 from "@/view/CadastroPasso1.vue"
 import CadastroPasso2 from "@/view/CadastroPasso2.vue"
 import CadastroPasso3 from "@/view/CadastroPasso3.vue"
+import FinalizarCompraEndereco from "@/view/FinalizarCompraEndereco.vue"
+import FinalizarCompraTipoPagamento from "@/view/FinalizarCompraTipoPagamento.vue"
+import FinalizarCompraConferir from "@/view/FinalizarCompraConferir.vue"
 const routes = [
   {
     path: "/",
@@ -46,7 +49,15 @@ const routes = [
   }, {
       path: "/cadastro",
     name: "CadastroPasso3",component: CadastroPasso3
-  }
+  }, {
+      path: "/finalizar",
+    name: "FinalizarCompraEndereco",component: FinalizarCompraEndereco
+  }, {
+      path: "/finalizar",
+    name: "FinalizarCompraTipoPagamento",component: FinalizarCompraTipoPagamento
+  }, {
+      path: "/finalizar",
+    name: "FinalizarCompraConferir",component: FinalizarCompraConferir  }
 ];
 
 const router = createRouter({

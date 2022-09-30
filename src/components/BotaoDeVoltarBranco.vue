@@ -29,4 +29,8 @@ export default {
 #voltar:hover {
     background-color: rgba(0, 0, 0, 0.50);
 }
+
+#voltar img {
+    margin-top: 6px;
+}
 </style>

@@ -1,9 +1,6 @@
 <template>
     <div class="fundo">
-
-
         <Logo :image="image" />
-
         <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
             :number="loja.number" :loja="loja"></LocalizacaoItem>
     </div>
@@ -28,27 +25,13 @@ onMounted(() => {
 })
 </script>
 
-<script >
-
+<script>
 import Logo from "../components/Logo.vue";
 
 import LocalizacaoItem from '../components/Localizacao.vue'
 export default {
-    name: 'App',
     components: {
         Logo, LocalizacaoItem
     }
 }
-
 </script>
-<style>
-@font-face {
-    font-family: Poppins;
-    src: url(../assets/Poppins-Regular.ttf);
-}
-
-.fundo {
-    font-family: "Poppins";
-    font-style: normal;
-}
-</style>
