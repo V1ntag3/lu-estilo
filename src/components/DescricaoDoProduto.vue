@@ -5,7 +5,8 @@
         <h5 id="opcoes-prod">Opções</h5>
 
         <div id="opcoes">
-            <button v-for="opcao in opcoes" :key="opcao.unit_price">{{opcao.unit_price}}</button>
+            <button v-for="opcao in opcoes" :key="opcao.unit_price" v-on:click="preco =
+            opcao.unit_price">{{opcao.unit_price}} </button>
         </div>
 
         <div id="separador-prod"></div>
@@ -17,7 +18,7 @@
         <InputPadrao :titulo="'Você quer adicionar alguma observação?'" />
 
     </div>
-    <BarraInferiorCompra />
+    <BarraInferiorCompra :preco="preco" />
 
 </template>
 
@@ -41,6 +42,10 @@ export default {
         },
         produto: {
             Type: Array
+        }
+    }, data() {
+        return {
+            preco: 0
         }
     },
     components: { BarraInferiorCompra, InputPadrao }

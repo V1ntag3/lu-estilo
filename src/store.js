@@ -22,8 +22,8 @@ export const useUserStore = defineStore("user", {
     currentProduto: [],
     cartProducts: [],
     categorias: [],
-    isLogged: {
-      value: false,
+    isLogged: false, dataUser: {
+      
     }
     }),
     getters: {
@@ -45,7 +45,8 @@ export const useUserStore = defineStore("user", {
         return state.slug
       }
     },
-    actions: {
+  actions: {
+  
       async fetchLojas() {
         try {
           const data = await http.get(clientes+cliente+format)

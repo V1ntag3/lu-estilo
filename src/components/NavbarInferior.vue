@@ -17,24 +17,29 @@
             </div>
         </router-link>
 
-        <router-link :to="{ name: 'CadastroLogin'}">
-            <div id="minha-conta">
+        <router-link :to="{ name: 'PaginaLojaVoltar'}">
+            <div id="minha-conta" v-if="isLogged">
                 <i class="bi bi-person"></i>
                 <h5>Conta</h5>
             </div>
         </router-link>
-
+        <router-link :to="{ name: 'CadastroLogin'}">
+            <div id="minha-conta" v-if="!isLogged">
+                <i class="bi bi-person"></i>
+                <h5>Conta</h5>
+            </div>
+        </router-link>
     </div>
 </template>
 
 <script setup>
 
 import { useUserStore } from "../store";
-import { toRaw } from 'vue'
+
 
 const store = useUserStore()
-const isLogged = toRaw(store.isLogged)
-console.log(toRaw(isLogged).value)
+const isLogged = store.isLogged
+console.log(isLogged)
 </script>
 
 <style>

@@ -1,8 +1,8 @@
 <template>
     <div id="barra-inferior">
         <div id="valores">
-            <h2 id="preco-produto">R$ {{preco}}</h2>
-            <h4 id="oferta">Ou até 3x de {{preco/3}} sem juros</h4>
+            <h2 id="preco-produto" v-bind="formatarDinheiro(preco)">{{precoFormat}}</h2>
+            <h4 id="oferta" v-bind="formatarDinheiroPor3(preco)">Ou até 3x de {{precoFormatPor3}} sem juros</h4>
         </div>
         <h3 id="acao">
             Comprar
@@ -15,6 +15,21 @@ export default {
     props: {
         preco: {
             Type: Number
+        }
+    }, data() {
+        return {
+            precoFormat: 0,
+            precoFormatPor3: 0
+        }
+    }, methods: {
+        formatarDinheiro(money) {
+            this.precoFormat = new Intl.NumberFormat('pt-BR', {
+                style: 'currency', currency: 'BRL'
+            }).format(money);
+        }, formatarDinheiroPor3(money) {
+            this.precoFormatPor3 = this.precoFormatPor3 = new Intl.NumberFormat('pt-BR', {
+                style: 'currency', currency: 'BRL'
+            }).format(money / 3);
         }
     }
 }
