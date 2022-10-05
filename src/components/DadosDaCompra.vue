@@ -3,21 +3,53 @@
         <p id="c-compra1">Resumo da Compra</p>
         <div id="subcontainercompra1">
             <p id="c-compra2">Subtotal </p>
-            <p id="c-compra3">Preco</p>
+            <p id="c-compra3" v-bind=" formatarValorSub(valorSub)">{{valorSubFormat}}</p>
         </div>
         <div id="subcontainercompra2">
             <p id="c-compra4">Valor da entrega </p>
-            <p id="c-compra5">A calcular</p>
+            <p id="c-compra5" v-bind=" formatarValorEntrega(valorEntrega)">{{valorEntregaFormat}}</p>
         </div>
         <div id="subcontainercompra3">
             <p id="c-compra6">Valor total </p>
-            <p id="c-compra7">preco</p>
+            <p id="c-compra7" v-bind=" formatarValorTotal(valorTotal)">{{valorTotalFormat}}</p>
         </div>
 
     </div>
 </template>
 <script>
-
+export default {
+    props: {
+        valorSub: { Type: Number },
+        valorEntrega: {
+            Type: Number
+        },
+        valorTotal: {
+            Type: Number
+        }
+    }, methods: {
+        formatarValorSub(money) {
+            this.valorSubFormat = new Intl.NumberFormat('pt-BR', {
+                style: 'currency', currency: 'BRL'
+            }).format(money);
+        },
+        formatarValorEntrega(money) {
+            this.valorEntregaFormat = new Intl.NumberFormat('pt-BR', {
+                style: 'currency', currency: 'BRL'
+            }).format(money);
+        },
+        formatarValorTotal(money) {
+            this.valorTotalFormat = new Intl.NumberFormat('pt-BR', {
+                style: 'currency', currency: 'BRL'
+            }).format(money);
+        }
+    }, data() {
+        return {
+            valorSubFormat: 0,
+            valorEntregaFormat: 0,
+            valorTotalFormat: 0,
+        }
+    }
+}
 </script>
 <style>
 #containercompra {

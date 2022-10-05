@@ -6,7 +6,7 @@
 
         <div id="opcoes">
             <button v-for="opcao in opcoes" :key="opcao.unit_price" v-on:click="preco =
-            opcao.unit_price">{{opcao.unit_price}} </button>
+            opcao.unit_price; available = opcao.available">{{opcao.unit_price}} </button>
         </div>
 
         <div id="separador-prod"></div>
@@ -18,13 +18,18 @@
         <InputPadrao :titulo="'Você quer adicionar alguma observação?'" />
 
     </div>
-    <BarraInferiorCompra :preco="preco" />
+    <BarraInferiorCompra v-if="preco === 0" :preco="preco" />
+    <router-link :to="{ name: 'PaginaLojaVoltar' }">
+        <BarraInferiorCompra v-if="preco !== 0" :preco="preco" v-on:click="colocarNoCarrinho" />
+    </router-link>
 
 </template>
 
 <script>
 import BarraInferiorCompra from "./BarraInferiorCompra.vue";
 import InputPadrao from "./InputPadrao.vue";
+import { useUserStore } from '../store'
+import { toRaw } from 'vue'
 export default {
     name: "DescricaoDoProdutoItem",
     props: {
@@ -42,13 +47,48 @@ export default {
         },
         produto: {
             Type: Array
-        }
+        },
     }, data() {
         return {
-            preco: 0
+            preco: 0,
+            available: 0,
+            pedido: {
+                unit_price: 0,
+                product: this.produto.id,
+                quantity: 1,
+                image: this.produto.images[0].image,
+                name: this.produto.short_description,
+                available: 0
+            }
         }
     },
-    components: { BarraInferiorCompra, InputPadrao }
+    components: { BarraInferiorCompra, InputPadrao },
+    methods: {
+        mudancas(quantidadeMax, preco) {
+            this.available = quantidadeMax
+            this.unit_price = preco
+        },
+        colocarNoCarrinho() {
+            const store = useUserStore()
+            const produto = toRaw(this.pedido)
+            produto.unit_price = this.preco
+            produto.available = this.available
+            var verificador = false
+            for (var i = 0; i < store.cartProducts.length; i++) {
+
+                if (store.cartProducts[i].product === produto.product &&
+                    store.cartProducts[i].unit_price === produto.unit_price) {
+
+                    store.cartProducts[i].quantity += 1
+                    verificador = true
+                }
+            }
+            if (verificador === false) {
+                store.cartProducts.push(produto)
+            }
+
+        }
+    }
 }
 </script>
 <style>
@@ -60,7 +100,6 @@ export default {
 #nome-do-produto {
     margin-bottom: 20px;
     margin-top: 20px;
-
     text-align: left;
     font-weight: 700;
     font-size: 32px;

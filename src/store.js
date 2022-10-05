@@ -19,7 +19,7 @@ export const useUserStore = defineStore("user", {
     lojas: [],
     banner: {},
     currentLoja: [],
-    currentProduto: [],
+    currentProduto: {},
     cartProducts: [],
     categorias: [],
     isLogged: false, dataUser: {

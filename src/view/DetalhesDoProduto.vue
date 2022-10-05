@@ -14,7 +14,6 @@ import { useUserStore } from "../store";
 import { useRoute } from 'vue-router';
 import { onMounted, computed, toRaw } from 'vue';
 
-
 const route = useRoute();
 
 const store = useUserStore()
@@ -26,7 +25,6 @@ onMounted(() => {
 const produtos = computed(() => {
     return toRaw(store.currentProduto);
 })
-
 </script>
 
 <script>

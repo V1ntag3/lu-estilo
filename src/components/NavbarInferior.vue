@@ -39,7 +39,6 @@ import { useUserStore } from "../store";
 
 const store = useUserStore()
 const isLogged = store.isLogged
-console.log(isLogged)
 </script>
 
 <style>
