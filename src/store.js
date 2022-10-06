@@ -22,8 +22,34 @@ export const useUserStore = defineStore("user", {
     currentProduto: {},
     cartProducts: [],
     categorias: [],
-    isLogged: false, dataUser: {
-      
+    isLogged: false,
+    dataUser: {
+    },
+    cadastro: {
+      consumer: {
+        birth_date: "",
+        name: "",
+        phone: "",
+        cpf_cnpj: "",
+        user: {
+          username: "",
+          password:""
+        }
+      },
+      address:{}
+    },
+       cadastroNull: {
+      consumer: {
+        birth_date: "",
+        name: "",
+        phone: "",
+        cpf_cnpj: "",
+        user: {
+          username: "",
+          password:""
+        }
+      },
+      address:{}
     }
     }),
     getters: {

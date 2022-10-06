@@ -38,7 +38,7 @@ input {
   margin-top: 60px;
 }
 
-.formulario-cadas form {
+.formulario-cadas {
   margin: 20px;
 }
 
