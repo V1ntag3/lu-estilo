@@ -9,8 +9,19 @@
             </p>
         </div>
     </div>
-    <CheckedBox :titulo="'Retirar na loja'" />
-    <CheckedBox :titulo="'Rua Coelho resende, 2345 - 64000-200/Teresina - PI'" />
+    <div id="chekeds">
+        <input type="radio" name="endereco" value="1" id="" v-model="enderecoValor" />
+        <label for="">Retirar na loja</label>
+    </div>
+
+    <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
+        <input type="radio" name="endereco" value="2" v-model="enderecoValor" />
+        <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
+            {{endereco.city.uf}}</label>
+    </div>
+
+
+
 
 
     <div id="adicionar-endereco">
@@ -19,25 +30,64 @@
             Adicionar endereço
         </p>
     </div>
-    <div></div>
+
     <router-link :to="{name: 'FinalizarCompraTipoPagamento'}">
-        <BotaoLaranja :acao="'Avançar'" />
+        <BotaoLaranja :acao="'Avançar'" v-if="enderecoValor != '' " @click="salvarEndereco()" />
     </router-link>
+
+
+    <div id="inativo">
+        <BotaoLaranja :acao="'Avançar'" v-if="enderecoValor == '' " />
+    </div>
 
 
 
 </template>
+<script setup>
+import { onMounted, computed } from 'vue';
+
+
+
+
+const store = useUserStore();
+
+const enderecos = computed(() => {
+    return store.enderecoUser
+})
+
+
+onMounted(() => {
+    store.fetchEndereco(store.dataUser.id);
+})
+</script>
+
+
 <script>
 import BotaoDeVoltarBranco from '@/components/BotaoDeVoltarBranco.vue';
 import TituloPaginas from '@/components/TituloPaginas.vue';
 import BotaoLaranja from '@/components/BotaoLaranja.vue';
-import CheckedBox from '@/components/CheckedBox.vue';
+import { useUserStore } from "../store";
+
 export default {
     components: {
         BotaoDeVoltarBranco,
         TituloPaginas,
-        BotaoLaranja,
-        CheckedBox
+        BotaoLaranja
+    }, data() {
+        return {
+            enderecoValor: ''
+        }
+    }, methods: {
+        salvarEndereco() {
+            const store = useUserStore();
+            store.pedido.address = parseInt(this.enderecoValor, 10)
+            if (this.enderecoValor == '1') {
+                store.pedido.delivery = false
+            }
+            else {
+                store.pedido.delivery = true
+            }
+        }
     }
 }
 </script>
@@ -68,5 +118,46 @@ export default {
 
 #adicionar-endereco:hover {
     filter: opacity(0.4);
+}
+
+
+#chekeds {
+    display: block;
+
+    width: 381px;
+
+    background: #FFFFFF;
+    border-radius: 4px;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+#chekeds input {
+    width: 16px;
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+
+}
+
+#chekeds label {
+    padding: 10px 0px;
+    margin-left: 25px;
+    position: relative;
+    width: 300px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.0075em;
+    color: #4E4B66;
+    top: 2px;
+    text-align: left;
+}
+
+#inativo {
+    opacity: 0.4;
+    cursor: default;
 }
 </style>

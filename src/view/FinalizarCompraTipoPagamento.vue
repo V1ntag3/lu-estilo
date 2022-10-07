@@ -9,7 +9,10 @@
             </p>
         </div>
     </div>
-    <CheckedBox :titulo="'PIX'" />
+    <div id="chekeds" v-if="currentLoja.payment_pix">
+        <input type="radio" name="endereco" value="3" id="" v-model="pagamentoValor" />
+        <label for="">PIX</label>
+    </div>
 
     <div id="finalizar-compra">
         <div id="subtitulo-finalizar">
@@ -19,11 +22,35 @@
         </div>
     </div>
 
-    <CheckedBox :titulo="'Cartão de crédito'" />
-    <CheckedBox :titulo="'Dinheiro'" />
+    <div id="chekeds" v-if="currentLoja.payment_debit">
+        <input type="radio" name="endereco" value="0" id="" v-model="pagamentoValor" />
+        <label for="">Cartão de Débito</label>
+    </div>
+
+
+    <div id="chekeds" v-if="currentLoja.payment_credit">
+        <input type="radio" name="endereco" value="1" id="" v-model="pagamentoValor" />
+        <label for="">Cartão de Crédito</label>
+    </div>
+
+
+    <div id="chekeds" v-if="currentLoja.payment_money">
+        <input type="radio" name="endereco" value="2" id="" v-model="pagamentoValor" />
+        <label for="">Dinheiro</label>
+    </div>
+
     <router-link :to="{name: 'FinalizarCompraConferir'}">
-        <BotaoLaranja :acao="'Avançar'" />
+        <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor !='2'"
+            @click="salvarPagamento()" />
     </router-link>
+
+    <router-link :to="{name: 'FinalizarCompraDinheiro'}">
+        <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor == '2' "
+            @click="salvarPagamento()" />
+    </router-link>
+    <div id="inativo">
+        <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor == '' " />
+    </div>
 
 </template>
 
@@ -31,13 +58,25 @@
 import BotaoDeVoltarBranco from '@/components/BotaoDeVoltarBranco.vue';
 import TituloPaginas from '@/components/TituloPaginas.vue';
 import BotaoLaranja from '@/components/BotaoLaranja.vue';
-import CheckedBox from '@/components/CheckedBox.vue';
+import { useUserStore } from "../store";
+
 export default {
     components: {
         BotaoDeVoltarBranco,
         TituloPaginas,
-        BotaoLaranja,
-        CheckedBox
+        BotaoLaranja
+    }, data() {
+        const store = useUserStore();
+
+        return {
+            pagamentoValor: "",
+            currentLoja: store.currentLoja
+        }
+    }, methods: {
+        salvarPagamento() {
+            const store = useUserStore();
+            store.pedido.payment = parseInt(this.pagamentoValor, 10)
+        }
     }
 }
 </script>

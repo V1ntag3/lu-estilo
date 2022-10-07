@@ -84,7 +84,12 @@ export default {
 
                 }
             }
-
+            console.log('aq')
+            this.$router.push({
+                name: 'CarrinhoDeProdutosReload',
+                query: this.$route.query,
+                hash: this.$route.hash,
+            });
         }
     }, setup() {
 

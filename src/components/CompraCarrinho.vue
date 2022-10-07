@@ -9,9 +9,18 @@
 
         <div class="separador"></div>
         <DadosDaCompra :valorSub="subtotal" :valorEntrega="entrega" :valorTotal="total" />
-        <router-link :to="{name:'FinalizarCompraEndereco'}">
-            <BotaoLaranja :acao="'Finalizar Compra'" />
-        </router-link>
+
+        <div v-if="isLogged">
+            <router-link :to="{name:'FinalizarCompraEndereco'}">
+                <BotaoLaranja :acao="'Finalizar Compra'" />
+            </router-link>
+        </div>
+
+        <div v-if="!isLogged">
+            <router-link :to="{name:'CadastroLogin'}">
+                <BotaoLaranja :acao="'Finalizar Compra'" />
+            </router-link>
+        </div>
     </div>
     <div v-if="produtos.length == 0" id="compra-carrinho">
         <img src="../assets/carrinhovazio.png" alt="" id="carrinho-vazio">
@@ -39,6 +48,9 @@ for (var i = 0; i < precos.value.length; i++) {
 }
 
 var total = subtotal + entrega
+
+const isLogged = store.isLogged
+
 
 </script>
 <script >
