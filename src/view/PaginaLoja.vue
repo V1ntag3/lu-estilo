@@ -4,21 +4,36 @@
         <Banner :image="dadosDaLoja.banner" />
 
         <div id="pesquisar-container">
-
             <i class="bi bi-search" id="icon-pesquisar" style=" color: #395BB9"></i>
-            <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui" v-model="pesquisa">
-
+            <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui" v-model="pesquisa"
+                @keyup="itemsPesquisa()">
         </div>
 
-        <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
-            :products="categoria.products" />
+
+
+        <div v-if="pesquisa != '' && vazio == true" id="pesquisa-nao-encontrada">
+            <img src="../assets/pesquisavazia.png" alt="">
+            <p>Não encontramos nenhum resultado.</p>
+        </div>
+
+        <div v-if="pesquisa != ''">
+            <Categoria v-for="categoria in itemsNaPesquisa" :key="categoria.id" :categories="categoria.description"
+                :products="categoria.products" />
+        </div>
+
+
+        <div v-if="pesquisa == ''">
+            <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
+                :products="categoria.products" />
+        </div>
+
     </div>
 
     <NavbarInferior id="navbar" />
 </template>
 
 <script setup>
-import { useUserStore } from "../store";
+
 import { useRoute } from 'vue-router';
 import { onMounted, computed } from 'vue';
 
@@ -45,14 +60,41 @@ onMounted(() => {
 import Banner from "@/components/Banner.vue";
 import Categoria from "@/components/Categoria.vue";
 import NavbarInferior from "../components/NavbarInferior.vue";
+import { useUserStore } from "../store";
+import { http } from "../services/config";
+
+
+let categoria = "categorias/";
+
+let pesquisar = "?search=";
+
 
 export default {
     components: {
         Banner, Categoria, NavbarInferior
     }, data() {
         return {
-            pesquisa: ''
+            pesquisa: '',
+            itemsNaPesquisa: {},
+            vazio: false
         }
+    }, methods: {
+        async itemsPesquisa() {
+            const store = useUserStore()
+            try {
+                const data = await http.get(categoria + store.slug + '/' + pesquisar + this.pesquisa);
+                this.itemsNaPesquisa = data.data;
+                if (data.data.length == 0) {
+                    this.vazio = true
+                } else {
+                    this.vazio = false
+                }
+            } catch (error) {
+                alert(error);
+                console.log(error);
+            }
+        },
+
     }
 }
 </script>
@@ -112,5 +154,20 @@ export default {
 #pesquisar:focus {
     box-shadow: 0 0 0 0;
     outline: 0;
+}
+
+#pesquisa-nao-encontrada p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    align-items: center;
+    letter-spacing: 0.75px;
+    color: #FFFFFF;
+}
+
+#pesquisa-nao-encontrada {
+
+    width: 100%;
+    margin: 0px auto;
 }
 </style>
