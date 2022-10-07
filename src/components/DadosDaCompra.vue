@@ -1,15 +1,15 @@
 <template>
     <div id="containercompra">
-        <p id="c-compra1">Resumo da Compra</p>
-        <div id="subcontainercompra1">
+        <p id="c-compra1" class="letra-600-16-28-00075">Resumo da Compra</p>
+        <div id="subcontainercompra1" class="letra-400-16-28-00075">
             <p id="c-compra2">Subtotal </p>
             <p id="c-compra3" v-bind=" formatarValorSub(valorSub)">{{valorSubFormat}}</p>
         </div>
-        <div id="subcontainercompra2">
+        <div id="subcontainercompra2" class="letra-400-16-28-00075">
             <p id="c-compra4">Valor da entrega </p>
             <p id="c-compra5" v-bind=" formatarValorEntrega(valorEntrega)">{{valorEntregaFormat}}</p>
         </div>
-        <div id="subcontainercompra3">
+        <div id="subcontainercompra3" class="letra-600-20-32-00075">
             <p id="c-compra6">Valor total </p>
             <p id="c-compra7" v-bind=" formatarValorTotal(valorTotal)">{{valorTotalFormat}}</p>
         </div>
@@ -55,76 +55,37 @@ export default {
 #containercompra {
     margin: 0 15px;
     text-align: left;
+    color: #FFFFFF;
 }
 
 #c-compra1 {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-    /* identical to box height, or 175% */
-
-    letter-spacing: 0.0075em;
-
-    /* White / 80% */
-
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 20px;
 }
 
 #subcontainercompra1 {
-    width: 100%;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    /* identical to box height, or 175% */
-
-    letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
-    color: #FFFFFF;
-
-    display: inline-block;
     margin-bottom: 0px;
 
 }
 
 #subcontainercompra2 {
-    width: 100%;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    /* identical to box height, or 175% */
-
-    letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
-    color: #FFFFFF;
-    display: inline-block;
     margin-bottom: 20px;
 }
 
 #subcontainercompra3 {
-    width: 100%;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 32px;
-    /* identical to box height, or 160% */
-
-    letter-spacing: 0.0075em;
-
-    /* White / 100% */
-
-    color: #FFFFFF;
-    display: inline-block;
     margin-bottom: 65px;
+}
+
+#subcontainercompra1,
+#subcontainercompra2,
+#subcontainercompra3 {
+    width: 100%;
+    display: inline-block;
 }
 
 #c-compra2,
 #c-compra4,
 #c-compra6 {
-
     width: 50%;
     display: inline-block;
 }
@@ -132,7 +93,6 @@ export default {
 #c-compra3,
 #c-compra5,
 #c-compra7 {
-
     text-align: right;
     width: 50%;
     display: inline-block;

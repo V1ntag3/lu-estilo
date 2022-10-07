@@ -1,14 +1,14 @@
 <template>
-    <div v-if="produtos.length != 0" id="compra-carrinho">
+    <div v-if="store.cartProducts.length != 0" id="compra-carrinho">
         <div id="card-varios-produtos">
 
-            <CardCarrinho v-for="produto in produtos" :key="produto.product" :image="produto.image" :nome="produto.name"
-                :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
+            <CardCarrinho v-for="produto in store.cartProducts" :key="produto.product" :image="produto.image"
+                :nome="produto.name" :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
                 :quantidadeMax="produto.available" />
         </div>
 
         <div class="separador"></div>
-        <DadosDaCompra :valorSub="subtotal" :valorEntrega="entrega" :valorTotal="total" />
+        <DadosDaCompra :valorSub="sub()" :valorEntrega="entrega()" :valorTotal="total()" />
 
         <div v-if="isLogged">
             <router-link :to="{name:'FinalizarCompraEndereco'}">
@@ -22,43 +22,24 @@
             </router-link>
         </div>
     </div>
-    <div v-if="produtos.length == 0" id="compra-carrinho">
+    <div v-if="store.cartProducts.length == 0" id="compra-carrinho">
         <img src="../assets/carrinhovazio.png" alt="" id="carrinho-vazio">
     </div>
     <NavbarInferior />
 </template>
 <script setup>
-import { useUserStore } from '../store'
-
-import { toRaw, computed } from "vue";
 const store = useUserStore()
-
-
-const precos = computed(() => {
-    return toRaw(store.cartProducts)
-})
-
-
-const produtos = precos.value
-var entrega = 0
-
-var subtotal = 0
-for (var i = 0; i < precos.value.length; i++) {
-    subtotal = subtotal + (precos.value[i].unit_price * precos.value[i].quantity)
-}
-
-var total = subtotal + entrega
 
 const isLogged = store.isLogged
 
-
 </script>
+
 <script >
 import CardCarrinho from "./CardCarrinho.vue";
 import NavbarInferior from "./NavbarInferior.vue";
 import BotaoLaranja from "./BotaoLaranja.vue";
 import DadosDaCompra from "./DadosDaCompra.vue";
-
+import { useUserStore } from '../store'
 
 export default {
     components: {
@@ -66,6 +47,28 @@ export default {
         NavbarInferior,
         BotaoLaranja,
         DadosDaCompra
+    }, methods: {
+        total() {
+            const store = useUserStore()
+            var entrega = 0
+            var subtotal = 0
+            for (var i = 0; i < store.cartProducts.length; i++) {
+                subtotal = subtotal + (store.cartProducts[i].unit_price * store.cartProducts[i].quantity)
+            }
+            var total = subtotal + entrega
+            return total
+        },
+        entrega() {
+            return 0
+        },
+        sub() {
+            const store = useUserStore()
+            var subtotal = 0
+            for (var i = 0; i < store.cartProducts.length; i++) {
+                subtotal = subtotal + (store.cartProducts[i].unit_price * store.cartProducts[i].quantity)
+            }
+            return subtotal
+        }
     }
 }
 </script>
@@ -79,6 +82,6 @@ export default {
 }
 
 #carrinho-vazio {
-    margin-top: 200px;
+    margin-top: 120px;
 }
 </style>

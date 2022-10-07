@@ -133,6 +133,13 @@ input {
   letter-spacing: 0.01em;
 }
 
+.letra-700-32-36-001 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 36px;
+  letter-spacing: 0.01em;
+}
+
 .letra-600-14-24-00075 {
   font-weight: 600;
   font-size: 14px;
@@ -147,6 +154,37 @@ input {
   letter-spacing: 0.0075em;
 }
 
+.letra-400-16-28-00075 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.0075em;
+}
+
+.letra-600-16-28-00075 {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28px;
+  letter-spacing: 0.0075em;
+}
+
+.letra-600-20-32-00075 {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.0075em;
+}
+
+.letra-400-12-18-00075 {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0.0075em;
+}
+
+input {
+  outline: 0;
+}
 
 @media (min-width: 600px) {
   form input {

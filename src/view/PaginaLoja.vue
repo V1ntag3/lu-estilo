@@ -5,8 +5,8 @@
 
         <div id="pesquisar-container">
             <i class="bi bi-search" id="icon-pesquisar" style=" color: #395BB9"></i>
-            <input type="search" name="pesquisar" id="pesquisar" placeholder="Digite a busca aqui" v-model="pesquisa"
-                @keyup="itemsPesquisa()">
+            <input type="search" name="pesquisar" id="pesquisar" class="letra-400-16-28-00075"
+                placeholder="Digite a busca aqui" v-model="pesquisa" @keyup="itemsPesquisa()">
         </div>
 
 
@@ -144,11 +144,6 @@ export default {
     border: none;
     border-radius: 8px;
 
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
-
 }
 
 #pesquisar:focus {
@@ -160,13 +155,11 @@ export default {
     font-weight: 400;
     font-size: 16px;
     line-height: 28px;
-    align-items: center;
     letter-spacing: 0.75px;
     color: #FFFFFF;
 }
 
 #pesquisa-nao-encontrada {
-
     width: 100%;
     margin: 0px auto;
 }

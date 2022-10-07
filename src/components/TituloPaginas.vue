@@ -1,6 +1,6 @@
 <template>
     <div id="container-titulo-gen">
-        <div id="titulo-gen">
+        <div id="titulo-gen" class="letra-700-32-36-001">
             <p>
                 {{titulo}}
             </p>
@@ -44,10 +44,6 @@ export default {
 
 #titulo-gen {
     margin-bottom: 8px;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 36px;
-    letter-spacing: 0.01em;
 }
 
 #subtitulo-gen {

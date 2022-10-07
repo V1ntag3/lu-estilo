@@ -1,12 +1,12 @@
 <template>
     <router-link :to="{ name: 'DetalhesDoProduto', params: {id: produto_id }}">
 
-        <div class="card">
-            <img v-bind:src="image" alt="" class="card-image">
+        <div id="card">
+            <img v-bind:src="image" alt="" id="card-image">
 
-            <p class="card-desc">{{ short_description }}</p>
+            <p id="card-desc" class="letra-600-16-28-00075">{{ short_description }}</p>
 
-            <p class="card-preco">R$ {{unit_price}}</p>
+            <p id="card-preco" class="letra-400-16-28-00075">R$ {{unit_price}}</p>
 
         </div>
 
@@ -43,41 +43,24 @@ a {
     text-decoration: none;
 }
 
-.card {
+#card {
     text-decoration: none;
     transition: 0.5s;
     cursor: pointer;
     width: 180px;
     margin: 10px;
+    color: #FFFFFF;
 }
 
-.card-image {
-
+#card-image {
     width: 180px;
     height: 180px;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 4px;
 }
 
-.card:hover {
+#card:hover {
     filter: opacity(0.5);
-}
-
-.card-desc {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-
-    letter-spacing: 0.0075em;
-    color: #FFFFFF;
-}
-
-.card-preco {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
-    color: #FFFFFF;
 }
 
 ::-webkit-scrollbar {

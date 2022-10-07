@@ -11,32 +11,54 @@
                 <input placeholder="Insira seu CEP aqui..." v-maska="'#####-###'" v-model="cepReal"
                     @keyup="buscarCep()">
 
-                <label for="">Rua</label>
-                <input type="text" placeholder="Insira a rua aqui..." v-model="address.street">
+                <div v-if="address.cep != ''">
+                    <label for="">Rua</label>
+                    <input type="text" placeholder="Insira a rua aqui..." v-model="address.street">
 
-                <label for="">Número</label>
-                <input type="number" placeholder="Insira o número aqui..." v-model="address.number">
+                    <label for="">Número</label>
+                    <input type="number" placeholder="Insira o número aqui..." v-model="address.number">
 
-                <label for="">Complemento</label>
-                <input type="text" placeholder="Insira o complemento aqui..." v-model="address.complement">
+                    <label for="">Complemento</label>
+                    <input type="text" placeholder="Insira o complemento aqui..." v-model="address.complement">
 
-                <label for="">Estado</label>
-                <input type="text" placeholder="Insira o estado aqui..." v-model="address.uf" disabled="disabled">
+                    <label for="">Estado</label>
+                    <input type="text" placeholder="Insira o estado aqui..." v-model="address.uf" disabled="disabled">
 
-                <label for="">Cidade</label>
-                <input type="text" placeholder="Insira a cidade aqui..." v-model="address.city" disabled="disabled">
+                    <label for="">Cidade</label>
+                    <input type="text" placeholder="Insira a cidade aqui..." v-model="address.city" disabled="disabled">
+                </div>
+
+                <div v-if="address.cep == ''" class="input-desativado">
+                    <label for="">Rua</label>
+                    <input type="text" placeholder="Insira a rua aqui..." v-model="address.street" disabled="disabled">
+
+                    <label for="">Número</label>
+                    <input type="number" placeholder="Insira o número aqui..." v-model="address.number"
+                        disabled="disabled">
+
+                    <label for="">Complemento</label>
+                    <input type="text" placeholder="Insira o complemento aqui..." v-model="address.complement"
+                        disabled="disabled">
+
+                    <label for="">Estado</label>
+                    <input type="text" placeholder="Insira o estado aqui..." v-model="address.uf" disabled="disabled">
+
+                    <label for="">Cidade</label>
+                    <input type="text" placeholder="Insira a cidade aqui..." v-model="address.city" disabled="disabled">
+                </div>
+
 
 
 
                 <router-link :to="{name: 'CadastroPasso2'}">
                     <input type="submit" value="Próximo" id="botao-ativo" @click="salvarEndereco()"
-                        v-if="address.cep != '' && address.number != ''">
+                        v-if="address.cep != '' && address.number != '' ">
                 </router-link>
 
 
 
             </form>
-            <button id="botao-inativo" v-if="address.cep == '' || address.number == ''">
+            <button id="botao-inativo" class="letra-600-14-24-00075" v-if="address.cep == '' || address.number == ''">
                 Próximo
             </button>
 
@@ -110,15 +132,15 @@ export default {
     opacity: 0.4;
     border: none;
     width: 100%;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.0075em;
     margin-top: 30px;
 
 }
 
 #botao-ativo {
     cursor: pointer;
+}
+
+.input-desativado {
+    opacity: 0.4;
 }
 </style>

@@ -18,13 +18,20 @@
     </div>
 
 
-
-
-    <div id="finalizar-compra-dinheiro">
+    <div id="finalizar-compra-dinheiro" v-if="troco.precisa != '' && troco.precisa != 'false'">
         <div id="observacao">
             <h5 id="observacao-prod">Troco para quanto?</h5>
             <input type="number" min="0" max="200" class="letra-400-14-24-00075" placeholder="Digite aqui..."
                 v-model="troco.quanto">
+        </div>
+    </div>
+
+    <div id="finalizar-compra-dinheiro" class="input-desativado"
+        v-if="troco.precisa == '' || troco.precisa == 'false' ">
+        <div id="observacao">
+            <h5 id="observacao-prod">Troco para quanto?</h5>
+            <input type="number" min="0" max="200" class="letra-400-14-24-00075" placeholder="Digite aqui..."
+                v-model="troco.quanto" disabled="disabled">
         </div>
     </div>
 

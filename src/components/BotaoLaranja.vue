@@ -1,5 +1,5 @@
 <template>
-    <button id="botao-laranja">{{acao}}</button>
+    <button id="botao-laranja" class="letra-600-14-24-00075">{{acao}}</button>
 </template>
 <script>
 export default {
@@ -15,9 +15,6 @@ export default {
 #botao-laranja {
     transition: 0.5s;
     cursor: pointer;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
     color: white;
     border: none;
     background: #E74845;

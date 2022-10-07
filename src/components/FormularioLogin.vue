@@ -5,21 +5,23 @@
         <label for="telefone" id="label-dados" class="letra-600-14-24-00075">Telefone</label>
         <input name="telefone" id="telefone" placeholder="Insira o seu telefone aqui..." v-model="username"
             v-maska="'(##) ##### - ####'">
-        <div id="error">
+        <div id="error" class="letra-400-12-18-00075">
             <p v-if="erro">Ops, este número é inválido.</p>
         </div>
 
         <label for="senha" id="label-dados" class="letra-600-14-24-00075">Senha</label>
         <input type="password" name="senha" id="senha" placeholder="Insira a sua senha aqui..." v-model="password">
-        <div id="error" class="error-senha">
+        <div id="error" class="letra-400-12-18-00075">
             <p v-if="erro">Ops, esta senha é inválida.</p>
         </div>
+        <div id="espaco">
+            <a href="" id="esqueci-senha" class="letra-600-14-24-00075">Esqueci minha senha</a>
 
-        <a href="" id="esqueci-senha" class="letra-600-14-24-00075">Esqueci minha senha</a>
-        <input v-if="(username === '' || password === '' )" type="button" id="enviar" class="letra-600-14-24-00075"
+        </div>
+        <input v-if="(username == '' || password == '' )" type="button" id="enviar" class="letra-600-14-24-00075"
             value="Enviar">
 
-        <input v-if="!(username === '' || password === '' )" type="submit" id="enviar-pronto"
+        <input v-if="!(username == '' || password == '' )" type="submit" id="enviar-pronto"
             class="letra-600-14-24-00075" value="Enviar">
 
     </form>
@@ -68,8 +70,6 @@ export default {
                     console.log('Senha inválida')
                     this.erro = true
                 }
-                alert(error)
-                console.log(error)
             }
         }
     }
@@ -133,8 +133,11 @@ export default {
     margin-top: 20px;
 }
 
-#esqueci-senha {
+#espaco {
+    margin-top: 50px;
+}
 
+#esqueci-senha {
     text-decoration: none;
     text-align: center;
     color: rgba(255, 255, 255, 0.8);
@@ -143,14 +146,6 @@ export default {
 #error {
     margin-top: 5px;
     text-align: left;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-    letter-spacing: 0.0075em;
     color: #E74845;
-}
-
-.error-senha {
-    margin-bottom: 60px;
 }
 </style>

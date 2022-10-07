@@ -1,6 +1,6 @@
 <template>
     <div id="container-principal">
-        <h2 id="tituloCar">Carrinho</h2>
+        <p id="tituloCar" class="letra-700-32-36-001">Carrinho</p>
     </div>
     <CompraCarrinho />
 </template>
@@ -16,7 +16,7 @@ export default {
 
 <style>
 #container-principal {
-    margin: 0 15px;
+    margin: 0 20px;
 }
 
 #tituloCar {
@@ -24,10 +24,6 @@ export default {
     text-align: left;
     margin-bottom: 30px;
 
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 36px;
-    letter-spacing: 0.01em;
     color: #FFFFFF;
 }
 </style>

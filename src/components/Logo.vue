@@ -1,11 +1,11 @@
 <template>
     <img v-bind:src="image" alt="logo" id="logo">
 
-    <p id="titulo">
+    <p id="titulo-logo" class="letra-700-32-36-001">
         Olá, seja <br />
         bem-vindo.</p>
 
-    <p id="sub-titulo">
+    <p id="sub-titulo-logo" class="letra-400-16-28-00075">
         Antes de continuarmos, selecione uma de <br />
         nossas unidades.</p>
 
@@ -27,21 +27,13 @@ export default {
     margin: 40px auto 0px auto;
 }
 
-#titulo {
+#titulo-logo {
     margin: 30px;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 36px;
-    letter-spacing: 0.01em;
     color: #f2f2f2;
 }
 
-#sub-titulo {
+#sub-titulo-logo {
     margin-bottom: 30px;
-    font-weight: 100;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
     color: #f2f2f2;
 }
 </style>

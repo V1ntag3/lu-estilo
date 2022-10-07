@@ -4,32 +4,29 @@
         <TituloPaginas :titulo="'Finalizar compra'"
             :subtitulo="'confira as informações abaixo antes de finalizar a compra do produto'" :tituloForm="' '" />
 
-
-        <CardCarrinho v-for="produto in produtos" :key="produto.product" :image="produto.image" :nome="produto.name"
-            :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
+        <CardCarrinho v-for="produto in store.cartProducts" :key="produto.product" :image="produto.image"
+            :nome="produto.name" :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
             :quantidadeMax="produto.available" />
         <div class="separador"></div>
 
-
         <InformacoesItem :titulo="'Endereço de entrega'" :dados="endereco" />
 
-
-
         <div class="separador"></div>
-
-
 
         <InformacoesItem :titulo="'pagamento na entrega'" :dados="pagamento" />
 
-
-
-
         <div class="separador"></div>
 
+        <DadosDaCompra :valorSub="sub()" :valorEntrega="entrega()" :valorTotal="total()" />
 
+        <BotaoLaranja :acao="'Finalizar compra'" @click="enviarPedido()" v-if="store.cartProducts.length != 0" />
+        <div id="finalizar">
+            <button id="botao-inativo" class="letra-600-14-24-00075" v-if="store.cartProducts.length == 0">
+                Finalizar compra
+            </button>
+        </div>
 
-        <DadosDaCompra :valorSub="subtotal" :valorEntrega="entrega" :valorTotal="total" />
-        <BotaoLaranja :acao="'Finalizar compra'" @click="enviarPedido()" />
+        <NavbarInferior />
     </div>
 </template>
 
@@ -37,29 +34,22 @@
 <script setup>
 
 
-import { toRaw } from "vue";
 const store = useUserStore()
 
 
-
-const produtos = toRaw(store.cartProducts)
-var entrega = 0
-var subtotal = 0
 var item = {
     unit_price: null,
     product: null,
     quantity: null
 }
-for (var i = 0; i < produtos.length; i++) {
-    subtotal = subtotal + (produtos[i].unit_price * produtos[i].quantity)
-    item.unit_price = produtos[i].unit_price
-    item.product = produtos[i].product
-    item.quantity = produtos[i].quantity
+for (var i = 0; i < store.cartProducts.length; i++) {
+
+    item.unit_price = store.cartProducts[i].unit_price
+    item.product = store.cartProducts[i].product
+    item.quantity = store.cartProducts[i].quantity
 
     store.pedido.items.push(item)
 }
-
-var total = subtotal + entrega
 
 var endereco
 if (store.pedido.address == 1) {
@@ -93,7 +83,7 @@ switch (store.pedido.payment) {
 store.pedido.consumer = store.dataUser.id
 store.pedido.phone = store.dataUser.phone
 store.pedido.store = store.slug
-store.pedido.total_price = total
+
 
 </script>
 <script>
@@ -103,6 +93,7 @@ import BotaoLaranja from '@/components/BotaoLaranja.vue';
 import CardCarrinho from '../components/CardCarrinho.vue';
 import DadosDaCompra from '../components/DadosDaCompra.vue';
 import InformacoesItem from '@/components/InformacoesItem.vue';
+import NavbarInferior from '@/components/NavbarInferior.vue';
 import { useUserStore } from '../store'
 import { http } from '../services/config'
 export default {
@@ -112,16 +103,24 @@ export default {
         BotaoLaranja,
         CardCarrinho,
         DadosDaCompra,
-        InformacoesItem
+        InformacoesItem,
+        NavbarInferior
     }, methods: {
         async enviarPedido() {
 
             try {
                 const store = useUserStore()
+                var entrega = 0
+                var subtotal = 0
+                for (var i = 0; i < store.cartProducts.length; i++) {
+                    subtotal = subtotal + (store.cartProducts[i].unit_price * store.cartProducts[i].quantity)
+                }
+                var total = subtotal + entrega
 
+                store.pedido.total_price = total
                 const pedido = store.pedido
                 var json = JSON.stringify(pedido)
-                const data = await http.post('pedidos/', json, {
+                await http.post('pedidos/', json, {
                     'headers': {
                         'Content-Type': 'application/json'
                     }
@@ -129,7 +128,6 @@ export default {
                 )
                 store.pedido = store.pedidoNull
                 store.cartProducts = []
-                console.log(data)
 
                 this.$router.push(this.$route.query.from || "/loja");
 
@@ -138,6 +136,27 @@ export default {
                 alert(error)
                 console.log(error)
             }
+        },
+        total() {
+            const store = useUserStore()
+            var entrega = 0
+            var subtotal = 0
+            for (var i = 0; i < store.cartProducts.length; i++) {
+                subtotal = subtotal + (store.cartProducts[i].unit_price * store.cartProducts[i].quantity)
+            }
+            var total = subtotal + entrega
+            return total
+        },
+        entrega() {
+            return 0
+        },
+        sub() {
+            const store = useUserStore()
+            var subtotal = 0
+            for (var i = 0; i < store.cartProducts.length; i++) {
+                subtotal = subtotal + (store.cartProducts[i].unit_price * store.cartProducts[i].quantity)
+            }
+            return subtotal
         }
     }
 }
@@ -146,5 +165,9 @@ export default {
 <style>
 #finalizar-compra-conferir {
     padding-bottom: 100px;
+}
+
+#finalizar {
+    margin: 0px 10px;
 }
 </style>

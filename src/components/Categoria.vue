@@ -1,14 +1,9 @@
 <template>
-    <p class="card-titulo">{{categories}}</p>
-    <div class="card-container">
-
-
-
+    <p id="card-titulo" class="letra-400-14-24-00075">{{categories}}</p>
+    <div id="card-container">
 
         <CardHome v-for="produto in produtos" :key="produto.id" :short_description="produto.short_description"
             :image="produto.images[0].image" :unit_price="produto.stocks[0].unit_price" :id="produto.id" />
-
-
 
     </div>
 </template>
@@ -40,12 +35,8 @@ export default {
 </script>
 
 <style>
-.card-titulo {
+#card-titulo {
 
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: 0.0075em;
     color: rgba(255, 255, 255, 0.8);
     text-align: left;
     margin-left: 10px;
@@ -54,7 +45,7 @@ export default {
 
 }
 
-.card-container {
+#card-container {
     text-align: left;
     overflow-x: auto;
     overflow-y: hidden;
