@@ -21,10 +21,10 @@
                 <input type="text" placeholder="Insira o complemento aqui..." v-model="address.complement">
 
                 <label for="">Estado</label>
-                <input type="text" placeholder="Insira o estado aqui..." v-model="address.uf">
+                <input type="text" placeholder="Insira o estado aqui..." v-model="address.uf" disabled="disabled">
 
                 <label for="">Cidade</label>
-                <input type="text" placeholder="Insira a cidade aqui..." v-model="address.city">
+                <input type="text" placeholder="Insira a cidade aqui..." v-model="address.city" disabled="disabled">
 
 
 
