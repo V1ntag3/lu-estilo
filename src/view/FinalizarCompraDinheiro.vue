@@ -21,8 +21,8 @@
     <div id="finalizar-compra-dinheiro" v-if="troco.precisa != '' && troco.precisa != 'false'">
         <div id="observacao">
             <h5 id="observacao-prod">Troco para quanto?</h5>
-            <input type="number" min="0" max="200" class="letra-400-14-24-00075" placeholder="Digite aqui..."
-                v-model="troco.quanto">
+            <input type="text" min="0" max="200" class="letra-400-14-24-00075" placeholder="R$ 0,00"
+                v-maska="'R$ ###,##'" v-model="troco.quanto" @keyup="verificar()">
         </div>
     </div>
 
@@ -30,8 +30,8 @@
         v-if="troco.precisa == '' || troco.precisa == 'false' ">
         <div id="observacao">
             <h5 id="observacao-prod">Troco para quanto?</h5>
-            <input type="number" min="0" max="200" class="letra-400-14-24-00075" placeholder="Digite aqui..."
-                v-model="troco.quanto" disabled="disabled">
+            <input type="text" min="0" max="200" class="letra-400-14-24-00075" v-model="troco.quanto"
+                placeholder="R$ 0,00" disabled="disabled" v-maska="'R$ ###,##'">
         </div>
     </div>
 
@@ -67,10 +67,28 @@ export default {
             }
         }
     }, methods: {
+        verificar() {
+            var numero = this.troco.quanto
+            numero = numero.replace('R', '')
+            numero = numero.replace('$', '')
+            numero = numero.replace(' ', '')
+            numero = numero.replace(',', '.')
+            numero = parseInt(numero, 10)
+            if (numero > 100) {
+                this.troco.quanto = "R$ 100,00"
+            }
+            console.log(numero)
+        },
         salvarTroco() {
             const store = useUserStore();
+            var numero = this.troco.quanto
+            numero = numero.replace('R', '')
+            numero = numero.replace('$', '')
+            numero = numero.replace(' ', '')
+            numero = numero.replace(',', '.')
+            numero = parseInt(numero, 10)
             store.troco.precisa = this.troco.precisa
-            store.troco.quanto = parseInt(this.troco.quanto, 10)
+            store.troco.quanto = numero
         }
     }
 }

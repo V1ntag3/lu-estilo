@@ -1,15 +1,16 @@
 <template>
     <router-link :to="{ name: 'PaginaLoja' , params: {slug: loja.slug }}">
-
-        <div id="localizacao">
-            <i class="bi bi-geo-alt-fill" id="icon-localizacao" width="30px" height="30px" style=" color: #395BB9"></i>
-            <div id="sub-container-localizacao">
-                <p id="nome-loja-localizacao">{{name}}</p>
-                <p id="endereco-localizacao" class="letra-400-14-24-00075">{{street}}, {{number}}</p>
+        <div>
+            <div id="localizacao">
+                <i class="bi bi-geo-alt-fill" id="icon-localizacao" width="30px" height="30px"
+                    style=" color: #395BB9"></i>
+                <div id="sub-container-localizacao">
+                    <p id="nome-loja-localizacao">{{name}}</p>
+                    <p id="endereco-localizacao" class="letra-400-14-24-00075">{{street}}, {{number}}</p>
+                </div>
+                <div id="seta-localizacao"></div>
             </div>
-            <div id="seta-localizacao"></div>
         </div>
-
     </router-link>
 </template>
 

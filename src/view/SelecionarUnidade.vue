@@ -1,8 +1,10 @@
 <template>
     <div class="fundo">
         <Logo :image="image" />
+
         <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
             :number="loja.number" :loja="loja"></LocalizacaoItem>
+
     </div>
 
     <router-view />
@@ -36,3 +38,6 @@ export default {
     }
 }
 </script>
+<style>
+
+</style>

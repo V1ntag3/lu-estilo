@@ -13,7 +13,9 @@
 
         <div class="separador"></div>
 
-        <InformacoesItem :titulo="'pagamento na entrega'" :dados="pagamento" />
+        <InformacoesItem :titulo="'pagamento pelo app'" :dados="pagamento" v-if="store.pedido.payment == 3" />
+
+        <InformacoesItem :titulo="'pagamento na entrega'" :dados="pagamento" v-if="store.pedido.payment != 3" />
 
         <div class="separador"></div>
 
@@ -73,7 +75,7 @@ switch (store.pedido.payment) {
         pagamento = "Dinheiro"
         break;
     case 3:
-        pagamento = "PIX"
+        pagamento = ""
         break;
     case 4:
         pagamento = "Cartão"

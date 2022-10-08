@@ -11,6 +11,9 @@
 
         <router-link :to="{ name: 'CarrinhoDeProdutos'}">
             <div id="carrinho">
+                <div id="icone-quantidade">
+                    {{store.cartProducts.length}}
+                </div>
                 <i class="bi bi-cart" id="icon-carrinho"></i>
 
                 <h5>Carrinho</h5>
@@ -34,11 +37,23 @@
 
 <script setup>
 
+
 import { useUserStore } from "../store";
-
-
-const store = useUserStore()
+const store = useUserStore();
 const isLogged = store.isLogged
+</script>
+
+<script>
+
+
+export default {
+    data() {
+
+        return {
+
+        }
+    }
+}
 </script>
 
 <style>
@@ -83,5 +98,20 @@ const isLogged = store.isLogged
 
 .bi::before {
     margin-top: 10px;
+}
+
+#icone-quantidade {
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 18px;
+    color: #FFFFFF;
+    position: fixed;
+    top: 3px;
+    left: 50%;
+    right: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #E74845;
 }
 </style>
