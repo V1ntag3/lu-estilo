@@ -31,10 +31,10 @@
 
 
         <div v-if="store.pesquisa == ''">
-            <TransitionGroup name="list">
-                <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
-                    :products="categoria.products" />
-            </TransitionGroup>
+
+            <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
+                :products="categoria.products" />
+
         </div>
 
     </div>
