@@ -13,13 +13,13 @@
         <input type="radio" name="endereco" value="1" id="" v-model="store.enderecoValor" />
         <label for="">Retirar na loja</label>
     </div>
-    <TransitionGroup name="list">
-        <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
-            <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
-            <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
-                {{endereco.city.uf}}</label>
-        </div>
-    </TransitionGroup>
+
+    <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
+        <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
+        <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
+            {{endereco.city.uf}}</label>
+    </div>
+
     <div id="adicionar-endereco">
         <img src="../assets/mais.png" alt="">
         <p>
