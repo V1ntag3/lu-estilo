@@ -9,13 +9,67 @@
             :quantidadeMax="produto.available" />
         <div class="separador"></div>
 
-        <InformacoesItem :titulo="'Endereço de entrega'" :dados="endereco" />
 
-        <div class="separador"></div>
+        <div v-if="store.pedido.payment  != 2">
 
-        <InformacoesItem :titulo="'pagamento pelo app'" :dados="pagamento" v-if="store.pedido.payment == 3" />
+            <InformacoesItem :titulo="'Endereço de entrega'" :dados="endereco" />
 
-        <InformacoesItem :titulo="'pagamento na entrega'" :dados="pagamento" v-if="store.pedido.payment != 3" />
+            <div class="separador"></div>
+
+            <InformacoesItem :titulo="'pagamento pelo app'" :dados="pagamento" v-if="store.pedido.payment == 3" />
+
+            <InformacoesItem :titulo="'pagamento na entrega'" :dados="pagamento" v-if="store.pedido.payment != 3" />
+
+        </div>
+        <div v-if="store.pedido.payment  == 2">
+
+
+            <div id="titulo-informacoes" class="letra-600-16-28-00075">
+                <p>Endereço de entrega</p>
+            </div>
+            <div id="container-info-dinheiro">
+                <div>
+                    <img src="../assets/icon-point.png" alt="" id="icon-point">
+                </div>
+                <div id="subcontainher-info-dinheiro">
+                    <p class="letra-600-16-28-00075" v-if="endereco != 'Retirar na loja'">Casa</p>
+                    <p class="letra-600-16-28-00075" v-if="endereco == 'Retirar na loja'">Loja</p>
+                    <p class="letra-400-14-24-00075">
+                        {{endereco}}
+                    </p>
+                </div>
+            </div>
+            <div class="separador"></div>
+
+
+            <div id="titulo-informacoes" class="letra-600-16-28-00075">
+                <p>pagamento na entrega</p>
+            </div>
+
+            <div id="container-info-dinheiro">
+                <div>
+                    <img src="../assets/icon-point.png" alt="" id="icon-point">
+                </div>
+                <div id="subcontainher-info-dinheiro">
+                    <p class="letra-600-16-28-00075">Dinheiro</p>
+
+                    <p v-if="store.troco.precisa != 'false'" class="letra-400-14-24-00075">
+                        Troco para R$ {{store.troco.quanto}}
+                    </p>
+                </div>
+            </div>
+
+
+
+            <div class="separador"></div>
+            <div id="titulo-informacoes" class="letra-600-16-28-00075">
+                <p>Deseja adicionar alguma observação?</p>
+                <div id="observacao">
+                    <input type="text" placeholder="Digite aqui sua observação...">
+                </div>
+            </div>
+        </div>
+
 
         <div class="separador"></div>
 
@@ -171,5 +225,31 @@ export default {
 
 #finalizar {
     margin: 0px 10px;
+}
+
+#icon-point {
+    margin-bottom: 4px;
+    width: 14px;
+    height: 14px;
+}
+
+#container-info-dinheiro {
+    color: #FFFFFF;
+    text-align: left;
+    margin: 0px 40px;
+}
+
+#container-info-dinheiro div {
+    display: inline-block;
+}
+
+#subcontainher-info-dinheiro {
+    max-width: 270px;
+    margin-left: 25px;
+    margin-top: 10px;
+}
+
+#titulo-informacoes p {
+    margin-bottom: 10px;
 }
 </style>
