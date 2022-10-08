@@ -16,7 +16,7 @@
 
     <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
         <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
-        <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
+        <label>{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
             {{endereco.city.uf}}</label>
     </div>
 
@@ -122,9 +122,7 @@ export default {
 
 #chekeds {
     display: block;
-
-    width: 381px;
-
+    width: 382px;
     background: #FFFFFF;
     border-radius: 4px;
     margin: auto;

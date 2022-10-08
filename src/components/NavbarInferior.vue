@@ -11,7 +11,8 @@
 
         <router-link :to="{ name: 'CarrinhoDeProdutos'}">
             <div id="carrinho">
-                <div id="icone-quantidade">
+
+                <div id="icone-quantidade" v-if="store.cartProducts.length != 0">
                     {{store.cartProducts.length}}
                 </div>
                 <i class="bi bi-cart" id="icon-carrinho"></i>

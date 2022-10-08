@@ -91,7 +91,7 @@ export default {
 <style>
 #finalizar-compra-dinheiro {
     text-align: left;
-    margin: 20px;
+    margin: 20px auto;
     margin-top: 50px;
 }
 

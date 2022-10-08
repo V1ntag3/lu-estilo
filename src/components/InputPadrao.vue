@@ -22,11 +22,16 @@ export default {
 
 #observacao input {
     padding-left: 20px;
-    width: 96%;
+    width: 100%;
     height: 52px;
     background: #FFFFFF;
     border-radius: 4px;
     border: none;
     color: #6E7191;
+}
+
+#observacao {
+    margin: 0px 20px;
+    margin-right: 40px;
 }
 </style>
