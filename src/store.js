@@ -18,6 +18,7 @@ export const useUserStore = defineStore("user", {
       Type: String,
     },
     pesquisa: "",
+    enderecoValor: "",
     lojas: [],
     banner: {},
     currentLoja: {},

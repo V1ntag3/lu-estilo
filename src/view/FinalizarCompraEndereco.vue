@@ -10,12 +10,12 @@
         </div>
     </div>
     <div id="chekeds">
-        <input type="radio" name="endereco" value="1" id="" v-model="enderecoValor" />
+        <input type="radio" name="endereco" value="1" id="" v-model="store.enderecoValor" />
         <label for="">Retirar na loja</label>
     </div>
 
     <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
-        <input type="radio" name="endereco" value="2" v-model="enderecoValor" />
+        <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
         <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
             {{endereco.city.uf}}</label>
     </div>
@@ -32,12 +32,12 @@
     </div>
 
     <router-link :to="{name: 'FinalizarCompraTipoPagamento'}">
-        <BotaoLaranja :acao="'Avançar'" v-if="enderecoValor != '' " @click="salvarEndereco()" />
+        <BotaoLaranja :acao="'Avançar'" v-if="store.enderecoValor != '' " @click="salvarEndereco()" />
     </router-link>
 
 
     <div id="inativo">
-        <BotaoLaranja :acao="'Avançar'" v-if="enderecoValor == '' " />
+        <BotaoLaranja :acao="'Avançar'" v-if="store.enderecoValor == '' " />
     </div>
 
 
@@ -75,13 +75,13 @@ export default {
         BotaoLaranja
     }, data() {
         return {
-            enderecoValor: ""
+
         }
     }, methods: {
         salvarEndereco() {
             const store = useUserStore();
-            store.pedido.address = parseInt(this.enderecoValor, 10)
-            if (this.enderecoValor == '1') {
+            store.pedido.address = parseInt(store.enderecoValor, 10)
+            if (store.enderecoValor == '1') {
                 store.pedido.delivery = false
             }
             else {
