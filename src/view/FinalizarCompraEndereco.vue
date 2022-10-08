@@ -158,6 +158,6 @@ export default {
 
 #inativo {
     opacity: 0.4;
-    cursor: default;
+    cursor: auto;
 }
 </style>

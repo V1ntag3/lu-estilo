@@ -6,23 +6,23 @@
         <div id="pesquisar-container">
             <i class="bi bi-search" id="icon-pesquisar" style=" color: #395BB9"></i>
             <input type="search" name="pesquisar" id="pesquisar" class="letra-400-16-28-00075"
-                placeholder="Digite a busca aqui" v-model="pesquisa" @keyup="itemsPesquisa(pesquisa)">
+                placeholder="Digite a busca aqui" v-model="store.pesquisa" @keyup="itemsPesquisa()">
         </div>
 
 
 
-        <div v-if="pesquisa != '' && vazio == true" id="pesquisa-nao-encontrada">
+        <div v-if="store.pesquisa != '' && vazio == true" id="pesquisa-nao-encontrada">
             <img src="../assets/pesquisavazia.png" alt="">
             <p>Não encontramos nenhum resultado.</p>
         </div>
 
-        <div v-if="pesquisa != ''">
+        <div v-if="store.pesquisa != ''">
             <Categoria v-for="categoria in itemsNaPesquisa" :key="categoria.id" :categories="categoria.description"
                 :products="categoria.products" />
         </div>
 
 
-        <div v-if="pesquisa == ''">
+        <div v-if="store.pesquisa == ''">
             <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
                 :products="categoria.products" />
         </div>
@@ -38,8 +38,9 @@ import { useRoute } from 'vue-router';
 import { onMounted, computed } from 'vue';
 
 const route = useRoute();
-
 const store = useUserStore()
+
+
 
 const dadosDaLoja = computed(() => {
     return store.getCurrentLoja
@@ -64,6 +65,7 @@ import { useUserStore } from "../store";
 import { http } from "../services/config";
 
 
+
 let categoria = "categorias/";
 
 let pesquisar = "?search=";
@@ -74,15 +76,15 @@ export default {
         Banner, Categoria, NavbarInferior
     }, data() {
         return {
-            pesquisa: "",
+
             itemsNaPesquisa: {},
             vazio: false
         }
     }, methods: {
-        async itemsPesquisa(valor) {
+        async itemsPesquisa() {
             const store = useUserStore()
             try {
-                const data = await http.get(categoria + store.slug + '/' + pesquisar + valor);
+                const data = await http.get(categoria + store.slug + '/' + pesquisar + store.pesquisa);
                 this.itemsNaPesquisa = data.data;
                 if (data.data.length == 0) {
                     this.vazio = true

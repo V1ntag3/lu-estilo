@@ -17,6 +17,7 @@ export const useUserStore = defineStore("user", {
     slug: {
       Type: String,
     },
+    pesquisa: "",
     lojas: [],
     banner: {},
     currentLoja: {},
