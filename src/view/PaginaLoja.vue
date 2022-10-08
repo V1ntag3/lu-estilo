@@ -23,12 +23,12 @@
                 <p>Não encontramos nenhum resultado.</p>
             </div>
         </Transition>
-        <Transition name="fade">
-            <div v-if="store.pesquisa != ''">
-                <Categoria v-for="categoria in itemsNaPesquisa" :key="categoria.id" :categories="categoria.description"
-                    :products="categoria.products" />
-            </div>
-        </Transition>
+
+        <div v-if="store.pesquisa != ''">
+            <Categoria v-for="categoria in itemsNaPesquisa" :key="categoria.id" :categories="categoria.description"
+                :products="categoria.products" />
+        </div>
+
         <Transition name="fade">
             <div v-if="store.pesquisa == ''">
 

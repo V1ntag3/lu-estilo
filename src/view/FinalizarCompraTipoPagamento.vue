@@ -9,7 +9,7 @@
             </p>
         </div>
     </div>
-    <Transition name="fade">
+    <Transition name="list">
         <div id="chekeds" v-if="currentLoja.payment_pix">
             <input type="radio" name="endereco" value="3" id="" v-model="pagamentoValor" />
             <label for="">PIX</label>
@@ -22,21 +22,21 @@
             </p>
         </div>
     </div>
-    <Transition name="fade">
+    <Transition name="list">
         <div id="chekeds" v-if="currentLoja.payment_debit">
             <input type="radio" name="endereco" value="0" id="" v-model="pagamentoValor" />
             <label for="">Cartão de Débito</label>
         </div>
 
     </Transition>
-    <Transition name="fade">
+    <Transition name="list">
         <div id="chekeds" v-if="currentLoja.payment_credit">
             <input type="radio" name="endereco" value="1" id="" v-model="pagamentoValor" />
             <label for="">Cartão de Crédito</label>
         </div>
 
     </Transition>
-    <Transition name="fade">
+    <Transition name="list">
         <div id="chekeds" v-if="currentLoja.payment_money">
             <input type="radio" name="endereco" value="2" id="" v-model="pagamentoValor" />
             <label for="">Dinheiro</label>
