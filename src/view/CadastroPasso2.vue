@@ -47,10 +47,6 @@ export default {
     }, methods: {
         salvarDadosDoConsumidor() {
 
-
-
-
-
             const date = new Date().toLocaleTimeString();
             var today = new Date();
             var milliseconds = today.getMilliseconds();

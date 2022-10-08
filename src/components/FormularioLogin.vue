@@ -36,8 +36,8 @@ export default {
         TituloPaginas
     }, data() {
         return {
-            username: '',
-            password: '',
+            username: "",
+            password: "",
             dataUser: {
             }, erro: false
         }

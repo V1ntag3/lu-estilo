@@ -74,7 +74,7 @@ export default {
         Banner, Categoria, NavbarInferior
     }, data() {
         return {
-            pesquisa: '',
+            pesquisa: "",
             itemsNaPesquisa: {},
             vazio: false
         }

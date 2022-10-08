@@ -45,15 +45,6 @@ const isLogged = store.isLogged
 
 <script>
 
-
-export default {
-    data() {
-
-        return {
-
-        }
-    }
-}
 </script>
 
 <style>

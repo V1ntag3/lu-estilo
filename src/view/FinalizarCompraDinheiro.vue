@@ -62,8 +62,8 @@ export default {
     }, data() {
         return {
             troco: {
-                precisa: '',
-                quanto: ''
+                precisa: "",
+                quanto: ""
             }
         }
     }, methods: {

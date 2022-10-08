@@ -24,11 +24,7 @@ export default {
         products: Object
     }, data() {
         return { produtos: toRaw(this.products) }
-    }, created() {
-        //console.log({ ...this.products });
-        // console.log(toRaw(this.products));
-        //    console.log(this.products)
-    },
+    }
 
 }
 

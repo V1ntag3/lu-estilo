@@ -52,13 +52,12 @@ export default {
                 store.cadastro.consumer.user.password = this.senha
                 const cadastro = store.cadastro
                 var json = JSON.stringify(cadastro)
-                const data = await http.post('consumidores/', json, {
+                await http.post('consumidores/', json, {
                     'headers': {
                         'Content-Type': 'application/json'
                     }
                 }
                 )
-                console.log(data)
                 store.cadastro = store.cadastroNull
                 this.$router.push(this.$route.query.from || "/login");
 

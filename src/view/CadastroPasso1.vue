@@ -102,15 +102,12 @@ export default {
                     .then(response => this.data = response.data)
                     .catch(error => console.log(error))
                 const dados = toRaw(this.data)
-                console.log(dados)
                 this.address.cep = cep.substring(0, 2) + '.' + cep.substring(2, 5) + "-" + cep.substring(5)
-                console.log(this.address.cep)
                 this.address.city = dados.localidade
                 this.address.uf = dados.uf
                 this.address.complement = dados.complemento
                 this.address.neighborhood = dados.bairro
                 this.address.street = dados.logradouro
-                console.log(this.address.uf)
             }
         },
         salvarEndereco() {
