@@ -1,5 +1,8 @@
 <template>
+
   <router-view />
+
+
 </template>
 
 <style>
@@ -180,6 +183,13 @@ input {
   font-size: 12px;
   line-height: 18px;
   letter-spacing: 0.0075em;
+}
+
+.pop-up-true {
+  width: 100%;
+  top: 20px;
+  position: absolute;
+  left: calc(50% - 164px);
 }
 
 input {

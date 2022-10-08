@@ -114,7 +114,6 @@ if (store.pedido.address == 1) {
 else {
     endereco = store.enderecoUser[0].street + ", " + store.enderecoUser[0].number + " - " + store.enderecoUser[0].cep + " / "
         + store.enderecoUser[0].city.name + " - " + store.enderecoUser[0].city.uf
-    console.log("aqui")
 }
 
 var pagamento
@@ -182,9 +181,10 @@ export default {
                     }
                 }
                 )
+
                 store.pedido = store.pedidoNull
                 store.cartProducts = []
-
+                store.finalizou = true
                 this.$router.push(this.$route.query.from || "/loja");
 
             }

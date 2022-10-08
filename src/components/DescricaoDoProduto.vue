@@ -70,6 +70,7 @@ export default {
         },
         colocarNoCarrinho() {
             const store = useUserStore()
+            store.comprou = true
             const produto = toRaw(this.pedido)
             produto.unit_price = this.preco
             produto.available = this.available
@@ -120,6 +121,7 @@ export default {
 }
 
 #opcoes button {
+    cursor: pointer;
     transition: 0.5s;
     border: none;
     background: rgba(0, 0, 0, 0.24);
@@ -133,6 +135,10 @@ export default {
 
 #opcoes button:focus {
     background: rgba(0, 0, 0, 0.50);
+}
+
+#opcoes button:hover {
+    opacity: 0.4;
 }
 
 #descricao-prod {

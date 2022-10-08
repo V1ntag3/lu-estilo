@@ -20,10 +20,6 @@
             {{endereco.city.uf}}</label>
     </div>
 
-
-
-
-
     <div id="adicionar-endereco">
         <img src="../assets/mais.png" alt="">
         <p>
@@ -37,7 +33,9 @@
 
 
     <div id="inativo">
-        <BotaoLaranja :acao="'Avançar'" v-if="store.enderecoValor == '' " />
+        <button id="botao-laranja-endereco" class="letra-600-14-24-00075"
+            v-if="store.enderecoValor == '' ">Avançar</button>
+
     </div>
 
 
@@ -80,11 +78,12 @@ export default {
     }, methods: {
         salvarEndereco() {
             const store = useUserStore();
-            store.pedido.address = parseInt(store.enderecoValor, 10)
+
             if (store.enderecoValor == '1') {
                 store.pedido.delivery = false
             }
             else {
+                store.pedido.address = store.enderecoUser[parseInt(store.enderecoValor, 10) - 2].id
                 store.pedido.delivery = true
             }
         }
@@ -159,5 +158,16 @@ export default {
 #inativo {
     opacity: 0.4;
     cursor: auto;
+}
+
+#botao-laranja-endereco {
+    transition: 0.5s;
+    color: white;
+    border: none;
+    background: #E74845;
+    border-radius: 4px;
+    width: 381px;
+    height: 56px;
+    margin-top: 30px;
 }
 </style>

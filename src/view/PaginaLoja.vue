@@ -1,6 +1,9 @@
 <template>
-
+    <div class="pop-up-true">
+        <PopUp :dados="'Compra realizada com sucesso'" v-if="store.finalizou" />
+    </div>
     <div id="fundo">
+
         <Banner :image="dadosDaLoja.banner" />
 
         <div id="pesquisar-container">
@@ -28,14 +31,15 @@
         </div>
 
     </div>
-
     <NavbarInferior id="navbar" />
+
 </template>
 
 <script setup>
 
 import { useRoute } from 'vue-router';
 import { onMounted, computed } from 'vue';
+
 
 const route = useRoute();
 const store = useUserStore()
@@ -55,6 +59,11 @@ onMounted(() => {
     store.fetchCategorias(route.params.slug)
 })
 
+if (store.finalizou == true) {
+    setTimeout(function () {
+        store.finalizou = false
+    }, 1500);
+}
 </script>
 
 <script >
@@ -63,7 +72,7 @@ import Categoria from "@/components/Categoria.vue";
 import NavbarInferior from "../components/NavbarInferior.vue";
 import { useUserStore } from "../store";
 import { http } from "../services/config";
-
+import PopUp from "../components/PopUp.vue"
 
 
 let categoria = "categorias/";

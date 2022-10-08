@@ -14,6 +14,8 @@ let pesquisaP = "&ids=";
 let endereco = "enderecos/";
 export const useUserStore = defineStore("user", {
   state: () => ({
+    comprou: false,
+    finalizou: false,
     slug: {
       Type: String,
     },

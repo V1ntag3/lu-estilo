@@ -1,4 +1,5 @@
 <template>
+
     <div v-if="store.cartProducts.length != 0" id="compra-carrinho">
         <div id="card-varios-produtos">
 
@@ -25,6 +26,7 @@
     <div v-if="store.cartProducts.length == 0" id="compra-carrinho">
         <img src="../assets/carrinhovazio.png" alt="" id="carrinho-vazio">
     </div>
+
     <NavbarInferior />
 </template>
 <script setup>
