@@ -29,16 +29,14 @@
                 :products="categoria.products" />
         </div>
 
-        <Transition name="fade">
-            <div v-if="store.pesquisa == ''">
 
+        <div v-if="store.pesquisa == ''">
+            <TransitionGroup name="list">
+                <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
+                    :products="categoria.products" />
+            </TransitionGroup>
+        </div>
 
-                <TransitionGroup name="list">
-                    <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
-                        :products="categoria.products" />
-                </TransitionGroup>
-            </div>
-        </Transition>
     </div>
     <NavbarInferior id="navbar" />
 
