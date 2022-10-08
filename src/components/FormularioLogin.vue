@@ -6,18 +6,23 @@
         <input name="telefone" id="telefone" placeholder="Insira o seu telefone aqui..." v-model="username"
             v-maska="'(##) ##### - ####'">
         <div id="error" class="letra-400-12-18-00075">
-            <p v-if="erro">Ops, este número é inválido.</p>
+            <Transition name="fade">
+                <p v-if="erro">Ops, este número é inválido.</p>
+            </Transition>
         </div>
 
         <label for="senha" id="label-dados" class="letra-600-14-24-00075">Senha</label>
         <input type="password" name="senha" id="senha" placeholder="Insira a sua senha aqui..." v-model="password">
         <div id="error" class="letra-400-12-18-00075">
-            <p v-if="erro">Ops, esta senha é inválida.</p>
+            <Transition name="fade">
+                <p v-if="erro">Ops, esta senha é inválida.</p>
+            </Transition>
         </div>
         <div id="espaco">
             <a href="" id="esqueci-senha" class="letra-600-14-24-00075">Esqueci minha senha</a>
 
         </div>
+
         <input v-if="(username == '' || password == '' )" type="button" id="enviar" class="letra-600-14-24-00075"
             value="Enviar">
 

@@ -1,13 +1,19 @@
 <template>
+
     <div class="fundo">
+
         <Logo :image="image" />
-
-        <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
-            :number="loja.number" :loja="loja"></LocalizacaoItem>
-
+        <TransitionGroup name="fade">
+            <LocalizacaoItem v-for="loja in lojas" :key="loja.id" :name="loja.name" :street="loja.street"
+                :number="loja.number" :loja="loja"></LocalizacaoItem>
+        </TransitionGroup>
     </div>
 
     <router-view />
+
+
+
+
 </template>
 
 <script setup>

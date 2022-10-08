@@ -3,10 +3,11 @@
         <BotaoDeVoltarBranco />
         <TituloPaginas :titulo="'Finalizar compra'"
             :subtitulo="'confira as informações abaixo antes de finalizar a compra do produto'" :tituloForm="' '" />
-
-        <CardCarrinho v-for="produto in store.cartProducts" :key="produto.product" :image="produto.image"
-            :nome="produto.name" :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
-            :quantidadeMax="produto.available" />
+        <TransitionGroup name="list">
+            <CardCarrinho v-for="produto in store.cartProducts" :key="produto.product" :image="produto.image"
+                :nome="produto.name" :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
+                :quantidadeMax="produto.available" />
+        </TransitionGroup>
         <div class="separador"></div>
 
 
@@ -21,6 +22,10 @@
             <InformacoesItem :titulo="'pagamento na entrega'" :dados="pagamento" v-if="store.pedido.payment != 3" />
 
         </div>
+
+
+
+
         <div v-if="store.pedido.payment  == 2">
 
 

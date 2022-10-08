@@ -1,6 +1,9 @@
 <template>
+
     <div class="pop-up-true">
-        <PopUp :dados="'Produto adicionado ao carrinho'" v-if="store.comprou" />
+        <Transition name="fade">
+            <PopUp :dados="'Produto adicionado ao carrinho'" v-if="store.comprou" />
+        </Transition>
     </div>
 
     <div id="container-principal">

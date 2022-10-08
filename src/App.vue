@@ -1,6 +1,9 @@
 <template>
+  <transition name="appear">
+    <router-view></router-view>
 
-  <router-view />
+  </transition>
+
 
 
 </template>

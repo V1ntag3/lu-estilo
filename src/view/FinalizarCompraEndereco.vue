@@ -13,13 +13,13 @@
         <input type="radio" name="endereco" value="1" id="" v-model="store.enderecoValor" />
         <label for="">Retirar na loja</label>
     </div>
-
-    <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
-        <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
-        <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
-            {{endereco.city.uf}}</label>
-    </div>
-
+    <TransitionGroup name="list">
+        <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
+            <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
+            <label for="">{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
+                {{endereco.city.uf}}</label>
+        </div>
+    </TransitionGroup>
     <div id="adicionar-endereco">
         <img src="../assets/mais.png" alt="">
         <p>
@@ -169,5 +169,16 @@ export default {
     width: 381px;
     height: 56px;
     margin-top: 30px;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
 }
 </style>

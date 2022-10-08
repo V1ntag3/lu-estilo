@@ -1,7 +1,11 @@
 <template>
+
     <div class="pop-up-true">
-        <PopUp :dados="'Compra realizada com sucesso'" v-if="store.finalizou" />
+        <Transition name="fade">
+            <PopUp :dados="'Compra realizada com sucesso'" v-if="store.finalizou" />
+        </Transition>
     </div>
+
     <div id="fundo">
 
         <Banner :image="dadosDaLoja.banner" />
@@ -13,23 +17,28 @@
         </div>
 
 
+        <Transition name="fade">
+            <div v-if="store.pesquisa != '' && vazio == true" id="pesquisa-nao-encontrada">
+                <img src="../assets/pesquisavazia.png" alt="">
+                <p>Não encontramos nenhum resultado.</p>
+            </div>
+        </Transition>
+        <Transition name="fade">
+            <div v-if="store.pesquisa != ''">
+                <Categoria v-for="categoria in itemsNaPesquisa" :key="categoria.id" :categories="categoria.description"
+                    :products="categoria.products" />
+            </div>
+        </Transition>
+        <Transition name="fade">
+            <div v-if="store.pesquisa == ''">
 
-        <div v-if="store.pesquisa != '' && vazio == true" id="pesquisa-nao-encontrada">
-            <img src="../assets/pesquisavazia.png" alt="">
-            <p>Não encontramos nenhum resultado.</p>
-        </div>
 
-        <div v-if="store.pesquisa != ''">
-            <Categoria v-for="categoria in itemsNaPesquisa" :key="categoria.id" :categories="categoria.description"
-                :products="categoria.products" />
-        </div>
-
-
-        <div v-if="store.pesquisa == ''">
-            <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
-                :products="categoria.products" />
-        </div>
-
+                <TransitionGroup name="list">
+                    <Categoria v-for="categoria in categorias" :key="categoria.id" :categories="categoria.description"
+                        :products="categoria.products" />
+                </TransitionGroup>
+            </div>
+        </Transition>
     </div>
     <NavbarInferior id="navbar" />
 
@@ -173,5 +182,26 @@ export default {
 #pesquisa-nao-encontrada {
     width: 100%;
     margin: 0px auto;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+    opacity: 0;
+    transform: translateX(30px);
 }
 </style>

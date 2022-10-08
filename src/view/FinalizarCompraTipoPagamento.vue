@@ -9,11 +9,12 @@
             </p>
         </div>
     </div>
-    <div id="chekeds" v-if="currentLoja.payment_pix">
-        <input type="radio" name="endereco" value="3" id="" v-model="pagamentoValor" />
-        <label for="">PIX</label>
-    </div>
-
+    <Transition name="fade">
+        <div id="chekeds" v-if="currentLoja.payment_pix">
+            <input type="radio" name="endereco" value="3" id="" v-model="pagamentoValor" />
+            <label for="">PIX</label>
+        </div>
+    </Transition>
     <div id="finalizar-compra">
         <div id="subtitulo-finalizar">
             <p>
@@ -21,35 +22,43 @@
             </p>
         </div>
     </div>
+    <Transition name="fade">
+        <div id="chekeds" v-if="currentLoja.payment_debit">
+            <input type="radio" name="endereco" value="0" id="" v-model="pagamentoValor" />
+            <label for="">Cartão de Débito</label>
+        </div>
 
-    <div id="chekeds" v-if="currentLoja.payment_debit">
-        <input type="radio" name="endereco" value="0" id="" v-model="pagamentoValor" />
-        <label for="">Cartão de Débito</label>
-    </div>
+    </Transition>
+    <Transition name="fade">
+        <div id="chekeds" v-if="currentLoja.payment_credit">
+            <input type="radio" name="endereco" value="1" id="" v-model="pagamentoValor" />
+            <label for="">Cartão de Crédito</label>
+        </div>
 
-
-    <div id="chekeds" v-if="currentLoja.payment_credit">
-        <input type="radio" name="endereco" value="1" id="" v-model="pagamentoValor" />
-        <label for="">Cartão de Crédito</label>
-    </div>
-
-
-    <div id="chekeds" v-if="currentLoja.payment_money">
-        <input type="radio" name="endereco" value="2" id="" v-model="pagamentoValor" />
-        <label for="">Dinheiro</label>
-    </div>
-
+    </Transition>
+    <Transition name="fade">
+        <div id="chekeds" v-if="currentLoja.payment_money">
+            <input type="radio" name="endereco" value="2" id="" v-model="pagamentoValor" />
+            <label for="">Dinheiro</label>
+        </div>
+    </Transition>
     <router-link :to="{name: 'FinalizarCompraConferir'}">
+
         <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor !='2'"
             @click="salvarPagamento()" />
+
     </router-link>
 
     <router-link :to="{name: 'FinalizarCompraDinheiro'}">
+
         <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor == '2' "
             @click="salvarPagamento()" />
+
     </router-link>
     <div id="inativo">
+
         <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor == '' " />
+
     </div>
 
 </template>

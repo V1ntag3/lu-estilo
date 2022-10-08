@@ -1,32 +1,35 @@
 <template>
+    <Transition name="fade">
+        <div v-if="store.cartProducts.length != 0" id="compra-carrinho">
+            <div id="card-varios-produtos">
+                <TransitionGroup name="list">
+                    <CardCarrinho v-for="produto in store.cartProducts" :key="produto.product" :image="produto.image"
+                        :nome="produto.name" :id="produto.product" :quantidade="produto.quantity"
+                        :preco="produto.unit_price" :quantidadeMax="produto.available" />
+                </TransitionGroup>
+            </div>
 
-    <div v-if="store.cartProducts.length != 0" id="compra-carrinho">
-        <div id="card-varios-produtos">
+            <div class="separador"></div>
+            <DadosDaCompra :valorSub="sub()" :valorEntrega="entrega()" :valorTotal="total()" />
 
-            <CardCarrinho v-for="produto in store.cartProducts" :key="produto.product" :image="produto.image"
-                :nome="produto.name" :id="produto.product" :quantidade="produto.quantity" :preco="produto.unit_price"
-                :quantidadeMax="produto.available" />
+            <div v-if="isLogged">
+                <router-link :to="{name:'FinalizarCompraEndereco'}">
+                    <BotaoLaranja :acao="'Finalizar Compra'" />
+                </router-link>
+            </div>
+
+            <div v-if="!isLogged">
+                <router-link :to="{name:'CadastroLogin'}">
+                    <BotaoLaranja :acao="'Finalizar Compra'" />
+                </router-link>
+            </div>
         </div>
-
-        <div class="separador"></div>
-        <DadosDaCompra :valorSub="sub()" :valorEntrega="entrega()" :valorTotal="total()" />
-
-        <div v-if="isLogged">
-            <router-link :to="{name:'FinalizarCompraEndereco'}">
-                <BotaoLaranja :acao="'Finalizar Compra'" />
-            </router-link>
+    </Transition>
+    <Transition name="fade">
+        <div v-if="store.cartProducts.length == 0" id="compra-carrinho">
+            <img src="../assets/carrinhovazio.png" alt="" id="carrinho-vazio">
         </div>
-
-        <div v-if="!isLogged">
-            <router-link :to="{name:'CadastroLogin'}">
-                <BotaoLaranja :acao="'Finalizar Compra'" />
-            </router-link>
-        </div>
-    </div>
-    <div v-if="store.cartProducts.length == 0" id="compra-carrinho">
-        <img src="../assets/carrinhovazio.png" alt="" id="carrinho-vazio">
-    </div>
-
+    </Transition>
     <NavbarInferior />
 </template>
 <script setup>
