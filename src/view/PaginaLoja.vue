@@ -6,7 +6,7 @@
         <div id="pesquisar-container">
             <i class="bi bi-search" id="icon-pesquisar" style=" color: #395BB9"></i>
             <input type="search" name="pesquisar" id="pesquisar" class="letra-400-16-28-00075"
-                placeholder="Digite a busca aqui" v-model="pesquisa" @keyup="itemsPesquisa()">
+                placeholder="Digite a busca aqui" v-model="pesquisa" @keyup="itemsPesquisa(pesquisa)">
         </div>
 
 
@@ -79,10 +79,10 @@ export default {
             vazio: false
         }
     }, methods: {
-        async itemsPesquisa() {
+        async itemsPesquisa(valor) {
             const store = useUserStore()
             try {
-                const data = await http.get(categoria + store.slug + '/' + pesquisar + this.pesquisa);
+                const data = await http.get(categoria + store.slug + '/' + pesquisar + valor);
                 this.itemsNaPesquisa = data.data;
                 if (data.data.length == 0) {
                     this.vazio = true

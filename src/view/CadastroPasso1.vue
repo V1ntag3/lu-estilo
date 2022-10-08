@@ -11,7 +11,7 @@
                 <input placeholder="Insira seu CEP aqui..." v-maska="'#####-###'" v-model="cepReal"
                     @keyup="buscarCep()">
 
-                <div v-if="address.cep != ''">
+                <div v-if="address.cep != '' && address.uf != undefined">
                     <label for="">Rua</label>
                     <input type="text" placeholder="Insira a rua aqui..." v-model="address.street">
 
@@ -28,7 +28,7 @@
                     <input type="text" placeholder="Insira a cidade aqui..." v-model="address.city" disabled="disabled">
                 </div>
 
-                <div v-if="address.cep == ''" class="input-desativado">
+                <div v-if="address.cep == '' || address.uf == undefined" class="input-desativado">
                     <label for="">Rua</label>
                     <input type="text" placeholder="Insira a rua aqui..." v-model="address.street" disabled="disabled">
 
@@ -52,13 +52,14 @@
 
                 <router-link :to="{name: 'CadastroPasso2'}">
                     <input type="submit" value="Próximo" id="botao-ativo" @click="salvarEndereco()"
-                        v-if="address.cep != '' && address.number != '' ">
+                        v-if="address.cep != '' && address.number != '' && address.uf != undefined">
                 </router-link>
 
 
 
             </form>
-            <button id="botao-inativo" class="letra-600-14-24-00075" v-if="address.cep == '' || address.number == ''">
+            <button id="botao-inativo" class="letra-600-14-24-00075"
+                v-if="address.cep == '' || address.number == '' || address.uf == undefined">
                 Próximo
             </button>
 
@@ -109,6 +110,7 @@ export default {
                 this.address.complement = dados.complemento
                 this.address.neighborhood = dados.bairro
                 this.address.street = dados.logradouro
+                console.log(this.address.uf)
             }
         },
         salvarEndereco() {
