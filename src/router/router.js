@@ -13,6 +13,8 @@ import FinalizarCompraEndereco from "@/view/FinalizarCompraEndereco.vue";
 import FinalizarCompraTipoPagamento from "@/view/FinalizarCompraTipoPagamento.vue";
 import FinalizarCompraConferir from "@/view/FinalizarCompraConferir.vue";
 import FinalizarCompraDinheiro from "@/view/FinalizarCompraDinheiro.vue";
+import DadosDaConta from "@/view/DadosDaConta.vue";
+
 const routes = [
   {
     path: "/",
@@ -88,6 +90,11 @@ const routes = [
     path: "/finalizar",
     name: "FinalizarCompraConferir",
     component: FinalizarCompraConferir,
+  },
+  {
+    path: "/dados",
+    name: "DadosDaConta",
+    component: DadosDaConta,
   },
 ];
 

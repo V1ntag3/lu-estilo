@@ -1,66 +1,67 @@
 <template>
-    <BotaoDeVoltarBranco />
-    <TituloPaginas :titulo="'Finalizar compra'"
-        :subtitulo="'confira as informações abaixo antes de finalizar a compra do produto'" :tituloForm="' '" />
-    <div id="finalizar-compra">
-        <div id="subtitulo-finalizar">
-            <p>
-                Pagar pelo app
-            </p>
+    <div id="container-finalizar-pagamento">
+        <BotaoDeVoltarBranco />
+        <TituloPaginas :titulo="'Finalizar compra'"
+            :subtitulo="'confira as informações abaixo antes de finalizar a compra do produto'" :tituloForm="' '" />
+        <div id="finalizar-compra">
+            <div id="subtitulo-finalizar">
+                <p>
+                    Pagar pelo app
+                </p>
+            </div>
+        </div>
+
+        <div id="chekeds" v-if="currentLoja.payment_pix">
+            <input type="radio" name="endereco" value="3" id="" v-model="pagamentoValor" />
+            <label for="">PIX</label>
+        </div>
+
+        <div id="finalizar-compra">
+            <div id="subtitulo-finalizar">
+                <p>
+                    Pagar na entrega
+                </p>
+            </div>
+        </div>
+
+        <div id="chekeds" v-if="currentLoja.payment_debit">
+            <input type="radio" name="endereco" value="0" id="" v-model="pagamentoValor" />
+            <label for="">Cartão de Débito</label>
+        </div>
+
+
+
+        <div id="chekeds" v-if="currentLoja.payment_credit">
+            <input type="radio" name="endereco" value="1" id="" v-model="pagamentoValor" />
+            <label for="">Cartão de Crédito</label>
+        </div>
+
+
+
+        <div id="chekeds" v-if="currentLoja.payment_money">
+            <input type="radio" name="endereco" value="2" id="" v-model="pagamentoValor" />
+            <label for="">Dinheiro</label>
+        </div>
+
+        <router-link :to="{name: 'FinalizarCompraConferir'}">
+
+            <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor !='2'"
+                @click="salvarPagamento()" />
+
+        </router-link>
+
+        <router-link :to="{name: 'FinalizarCompraDinheiro'}">
+
+            <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor == '2' "
+                @click="salvarPagamento()" />
+
+        </router-link>
+        <div id="inativo">
+
+            <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor == '' " />
+
         </div>
     </div>
-
-    <div id="chekeds" v-if="currentLoja.payment_pix">
-        <input type="radio" name="endereco" value="3" id="" v-model="pagamentoValor" />
-        <label for="">PIX</label>
-    </div>
-
-    <div id="finalizar-compra">
-        <div id="subtitulo-finalizar">
-            <p>
-                Pagar na entrega
-            </p>
-        </div>
-    </div>
-
-    <div id="chekeds" v-if="currentLoja.payment_debit">
-        <input type="radio" name="endereco" value="0" id="" v-model="pagamentoValor" />
-        <label for="">Cartão de Débito</label>
-    </div>
-
-
-
-    <div id="chekeds" v-if="currentLoja.payment_credit">
-        <input type="radio" name="endereco" value="1" id="" v-model="pagamentoValor" />
-        <label for="">Cartão de Crédito</label>
-    </div>
-
-
-
-    <div id="chekeds" v-if="currentLoja.payment_money">
-        <input type="radio" name="endereco" value="2" id="" v-model="pagamentoValor" />
-        <label for="">Dinheiro</label>
-    </div>
-
-    <router-link :to="{name: 'FinalizarCompraConferir'}">
-
-        <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor !='2'"
-            @click="salvarPagamento()" />
-
-    </router-link>
-
-    <router-link :to="{name: 'FinalizarCompraDinheiro'}">
-
-        <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor != '' && pagamentoValor == '2' "
-            @click="salvarPagamento()" />
-
-    </router-link>
-    <div id="inativo">
-
-        <BotaoLaranja :acao="'Avançar'" v-if="pagamentoValor == '' " />
-
-    </div>
-
 </template>
 
 <script>
@@ -90,6 +91,10 @@ export default {
 }
 </script>
 <style>
+#container-finalizar-pagamento {
+    padding-bottom: 50px;
+}
+
 #finalizar-compra {
     margin: 20px;
     margin-top: 30px;

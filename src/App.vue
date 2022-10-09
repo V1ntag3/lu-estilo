@@ -25,7 +25,6 @@
 body {
   background: linear-gradient(226.95deg, #606C88 0%, #3F4C6B 100%);
   text-align: center;
-
 }
 
 input {

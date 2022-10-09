@@ -1,16 +1,18 @@
 <template>
-    <BotaoDeVoltarX />
-    <div id="cadastrologin" class="letra-700-32-36-001">
+    <div id="container-cadastro-login">
+        <BotaoDeVoltarX />
+        <div id="cadastrologin" class="letra-700-32-36-001">
 
-        <h1 class="letra-700-32-36-001">Acesse sua conta ou <br>cadastre-se!</h1>
-        <h2 class="letra-400-14-24-00075">Para continuar o processo de compra, escolha uma das opções abaixo.</h2>
-        <router-link :to="{name: 'LoginNaLoja'}">
-            <BotaoLaranja :acao="'Já sou cliente'" />
-        </router-link>
-        <router-link :to="{name: 'CadastroPasso1'}">
-            <button id="registrar" class="letra-600-14-24-00075">Criar nova conta</button>
-        </router-link>
+            <h1 class="letra-700-32-36-001">Acesse sua conta ou <br>cadastre-se!</h1>
+            <h2 class="letra-400-14-24-00075">Para continuar o processo de compra, escolha uma das opções abaixo.</h2>
+            <router-link :to="{name: 'LoginNaLoja'}">
+                <BotaoLaranja :acao="'Já sou cliente'" />
+            </router-link>
+            <router-link :to="{name: 'CadastroPasso1'}">
+                <button id="registrar" class="letra-600-14-24-00075">Criar nova conta</button>
+            </router-link>
 
+        </div>
     </div>
 </template>
 
@@ -25,6 +27,10 @@ export default {
 </script>
 
 <style scoped>
+#container-cadastro-login {
+    padding-bottom: 100px;
+}
+
 #cadastrologin h1,
 #cadastrologin h2 {
     text-align: left;

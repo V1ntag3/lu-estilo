@@ -3,21 +3,18 @@
         <p>{{titulo}}</p>
     </div>
 
-    <div v-if="dados == ''" id="container-informacoes">
+    <div v-if="dados == ''" id="container-informacoes" class="letra-600-16-28-00075">
         <div id="qr-code-container">
             <img src="../assets/qr-code.png" alt="">
-            <div id="qr-code-subcontainer">
+            <div id="qr-code-subcontainer" class="letra-600-16-28-00075">
                 <p>Código PIX</p>
-                <input type="text" class="text" disabled="disabled" v-model="code" id="code">
+                <input type="text" class="letra-600-16-28-00075" disabled="disabled" v-model="code" id="code">
                 <button id="copiar" @click="copiar()"><img src="../assets/copiar.png" alt=""></button>
             </div>
-
         </div>
-
     </div>
 
-
-    <div v-if="dados != ''" id="container-informacoes">
+    <div v-if="dados != ''" id="container-informacoes" class="letra-600-16-28-00075">
         <p>{{dados}}</p>
     </div>
 </template>
@@ -35,15 +32,13 @@ export default {
             code: "casd123-123wdfsd-123123-1234123-123fvdf"
         }
     }, methods: {
-        async copiar() {
-            try {
-                await navigator.clipboard.writeText(this.code);
-            } catch ($e) {
-                alert('Cannot copy');
-            }
+        copiar() {
+            var copyText = document.getElementById("code");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            navigator.clipboard.writeText(copyText.value);
         }
     }
-
 }
 </script>
 <style>
@@ -63,10 +58,6 @@ export default {
     padding-top: 10px;
     padding-bottom: 10px;
     color: #4E4B66;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
 
 }
 
@@ -82,19 +73,11 @@ export default {
 
 #qr-code-subcontainer {
     text-align: left;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
     color: #4E4B66;
 }
 
 #code {
     margin-left: 20px;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
     width: 280px;
     border: none;
 }

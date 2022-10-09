@@ -1,6 +1,8 @@
 <template>
-    <BotaoDeVoltarBranco />
-    <FormularioLogin />
+    <div id="container-login">
+        <BotaoDeVoltarBranco />
+        <FormularioLogin />
+    </div>
 </template>
 
 <script>
@@ -11,3 +13,8 @@ export default {
     components: { BotaoDeVoltarBranco, FormularioLogin }
 }
 </script>
+<style>
+#container-login {
+    padding-bottom: 50px;
+}
+</style>

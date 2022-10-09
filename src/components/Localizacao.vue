@@ -5,7 +5,7 @@
                 <i class="bi bi-geo-alt-fill" id="icon-localizacao" width="30px" height="30px"
                     style=" color: #395BB9"></i>
                 <div id="sub-container-localizacao">
-                    <p id="nome-loja-localizacao">{{name}}</p>
+                    <p id="nome-loja-localizacao" class="letra-600-16-28-00075">{{name}}</p>
                     <p id="endereco-localizacao" class="letra-400-14-24-00075">{{street}}, {{number}}</p>
                 </div>
                 <div id="seta-localizacao"></div>
@@ -73,12 +73,6 @@ export default {
 
 #nome-loja-localizacao {
     display: block;
-
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
-    letter-spacing: 0.0075em;
-
     color: #14142b;
     margin-bottom: 0px;
 }

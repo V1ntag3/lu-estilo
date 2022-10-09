@@ -1,31 +1,33 @@
 <template>
-    <div id="botao-de-voltar-gen">
-        <BotaoDeVoltarBranco />
-    </div>
+    <div id="container-cadastro-2">
+        <div id="botao-de-voltar-gen">
+            <BotaoDeVoltarBranco />
+        </div>
 
-    <TituloPaginas :titulo=" 'Passo 2 de 3' " :subtitulo="'Confirme o seus dados pessoais'"
-        :tituloForm="'Dados pessoais'" />
-    <div class="formulario-cadas">
-        <form action="">
-            <label for="">Nome completo</label>
-            <input type="text" placeholder="Insira o seu nome aqui..." v-model="name">
+        <TituloPaginas :titulo=" 'Passo 2 de 3' " :subtitulo="'Confirme o seus dados pessoais'"
+            :tituloForm="'Dados pessoais'" />
+        <div class="formulario-cadas">
+            <form action="">
+                <label for="">Nome completo</label>
+                <input type="text" placeholder="Insira o seu nome aqui..." v-model="name">
 
-            <label for="">CPF</label>
-            <input placeholder="Insira o seu CPF aqui..." v-maska="'###.###.###-##'" v-model="cpf">
+                <label for="">CPF</label>
+                <input placeholder="Insira o seu CPF aqui..." v-maska="'###.###.###-##'" v-model="cpf">
 
-            <label for="">Data de nascimento</label>
-            <input type="date" placeholder="00/00/0000" v-model="data">
+                <label for="">Data de nascimento</label>
+                <input type="date" placeholder="00/00/0000" v-model="data">
 
-            <label for="">Telefone</label>
-            <input type="tel" placeholder="(00) 00000 - 0000" v-maska="'(##) ##### - ####'" v-model="telefone">
-            <router-link :to="{name: 'CadastroPasso3'}">
-                <input type="submit" value="Próximo" @click="salvarDadosDoConsumidor()"
-                    v-if="name != '' && cpf != '' && data != '' && telefone != '' && TestaCPF()">
-            </router-link>
-        </form>
-        <button id="botao-inativo" v-if="name == '' || cpf == '' || data == '' || telefone == '' || !TestaCPF()">
-            Próximo
-        </button>
+                <label for="">Telefone</label>
+                <input type="tel" placeholder="(00) 00000 - 0000" v-maska="'(##) ##### - ####'" v-model="telefone">
+                <router-link :to="{name: 'CadastroPasso3'}">
+                    <input type="submit" value="Próximo" @click="salvarDadosDoConsumidor()"
+                        v-if="name != '' && cpf != '' && data != '' && telefone != '' && TestaCPF()">
+                </router-link>
+            </form>
+            <button id="botao-inativo" v-if="name == '' || cpf == '' || data == '' || telefone == '' || !TestaCPF()">
+                Próximo
+            </button>
+        </div>
     </div>
 </template>
 
@@ -90,3 +92,8 @@ export default {
     }
 }
 </script>
+<style>
+#container-cadastro-2 {
+    padding-bottom: 5px;
+}
+</style>

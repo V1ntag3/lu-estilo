@@ -1,45 +1,46 @@
 <template>
-    <BotaoDeVoltarBranco />
-    <TituloPaginas :titulo="'Finalizar compra'"
-        :subtitulo="'confira as informações abaixo antes de finalizar a compra do produto'" :tituloForm="' '" />
-    <div id="finalizar-compra">
-        <div id="subtitulo-finalizar">
+    <div id="container-finalizar-endereco">
+
+        <BotaoDeVoltarBranco />
+        <TituloPaginas :titulo="'Finalizar compra'"
+            :subtitulo="'confira as informações abaixo antes de finalizar a compra do produto'" :tituloForm="' '" />
+        <div id="finalizar-compra">
+            <div id="subtitulo-finalizar">
+                <p>
+                    Onde você quer receber?
+                </p>
+            </div>
+        </div>
+        <div id="chekeds">
+            <input type="radio" name="endereco" value="1" id="" v-model="store.enderecoValor" />
+            <label for="">Retirar na loja</label>
+        </div>
+
+        <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
+            <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
+            <label>{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
+                {{endereco.city.uf}}</label>
+        </div>
+
+        <div id="adicionar-endereco">
+            <img src="../assets/mais.png" alt="">
             <p>
-                Onde você quer receber?
+                Adicionar endereço
             </p>
         </div>
-    </div>
-    <div id="chekeds">
-        <input type="radio" name="endereco" value="1" id="" v-model="store.enderecoValor" />
-        <label for="">Retirar na loja</label>
-    </div>
 
-    <div id="chekeds" v-for="endereco in enderecos" :key="endereco.number">
-        <input type="radio" name="endereco" value="2" v-model="store.enderecoValor" />
-        <label>{{endereco.street}}, {{endereco.number}} - {{endereco.cep}} / {{endereco.city.name}} -
-            {{endereco.city.uf}}</label>
-    </div>
-
-    <div id="adicionar-endereco">
-        <img src="../assets/mais.png" alt="">
-        <p>
-            Adicionar endereço
-        </p>
-    </div>
-
-    <router-link :to="{name: 'FinalizarCompraTipoPagamento'}">
-        <BotaoLaranja :acao="'Avançar'" v-if="store.enderecoValor != '' " @click="salvarEndereco()" />
-    </router-link>
+        <router-link :to="{name: 'FinalizarCompraTipoPagamento'}">
+            <BotaoLaranja :acao="'Avançar'" v-if="store.enderecoValor != '' " @click="salvarEndereco()" />
+        </router-link>
 
 
-    <div id="inativo">
-        <button id="botao-laranja-endereco" class="letra-600-14-24-00075"
-            v-if="store.enderecoValor == '' ">Avançar</button>
+        <div id="inativo">
+            <button id="botao-laranja-endereco" class="letra-600-14-24-00075"
+                v-if="store.enderecoValor == '' ">Avançar</button>
+
+        </div>
 
     </div>
-
-
-
 </template>
 <script setup>
 import { onMounted, computed } from 'vue';
@@ -91,6 +92,10 @@ export default {
 }
 </script>
 <style>
+#container-finalizar-endereco {
+    padding-bottom: 50px;
+}
+
 #adicionar-endereco {
     transition: 00.5s;
     cursor: pointer;

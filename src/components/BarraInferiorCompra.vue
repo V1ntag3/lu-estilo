@@ -1,12 +1,11 @@
 <template>
     <div id="barra-inferior">
         <div id="valores">
-            <h2 id="preco-produto" v-bind="formatarDinheiro(preco)">{{precoFormat}}</h2>
-            <h4 id="oferta" v-bind="formatarDinheiroPor3(preco)">Ou até 3x de {{precoFormatPor3}} sem juros</h4>
+            <h2 id="preco-produto" class="letra-600-20-32-00075" v-bind="formatarDinheiro(preco)">{{precoFormat}}</h2>
+            <h4 id="oferta" class="letra-400-14-24-00075" v-bind="formatarDinheiroPor3(preco)">Ou até 3x de
+                {{precoFormatPor3}} sem juros</h4>
         </div>
-        <h3 id="acao">
-            Comprar
-        </h3>
+        <h3 id="acao" class="letra-600-16-28-00075">Comprar</h3>
     </div>
 </template>
 
@@ -34,6 +33,7 @@ export default {
     }
 }
 </script>
+
 <style>
 #barra-inferior {
     color: white;
@@ -54,22 +54,10 @@ export default {
 
 #preco-produto {
     color: white;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 32px;
     margin-bottom: 5px;
 }
 
-#oferta {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-}
-
 #acao {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 28px;
     position: fixed;
     right: 20px;
     bottom: 25px;

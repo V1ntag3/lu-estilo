@@ -21,7 +21,7 @@
             </div>
         </router-link>
 
-        <router-link :to="{ name: 'PaginaLojaVoltar'}">
+        <router-link :to="{ name: 'DadosDaConta'}">
             <div id="minha-conta" v-if="isLogged">
                 <i class="bi bi-person"></i>
                 <h5>Conta</h5>

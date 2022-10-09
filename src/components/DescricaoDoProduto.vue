@@ -15,9 +15,13 @@
         <h5 class="letra-400-16-28-00075 ">{{descricao}}</h5>
         <div class="separador"></div>
 
-        <InputPadrao :titulo="'Você quer adicionar alguma observação?'" />
+        <div id="observacao-input">
+            <h5 id="observacao-prod" class="letra-600-14-24-00075">Você quer adicionar alguma observação?</h5>
+            <input type="text" class="letra-400-14-24-00075" placeholder="Digite aqui...">
+        </div>
 
     </div>
+
     <BarraInferiorCompra v-if="preco === 0" :preco="preco" />
     <router-link :to="{ name: 'CarrinhoDeProdutos' }">
         <BarraInferiorCompra v-if="preco !== 0" :preco="preco" v-on:click="colocarNoCarrinho" />
@@ -27,7 +31,6 @@
 
 <script>
 import BarraInferiorCompra from "./BarraInferiorCompra.vue";
-import InputPadrao from "./InputPadrao.vue";
 import { useUserStore } from '../store'
 import { toRaw } from 'vue'
 export default {
@@ -62,7 +65,7 @@ export default {
             }
         }
     },
-    components: { BarraInferiorCompra, InputPadrao },
+    components: { BarraInferiorCompra },
     methods: {
         mudancas(quantidadeMax, preco) {
             this.available = quantidadeMax
@@ -137,12 +140,25 @@ export default {
     background: rgba(0, 0, 0, 0.50);
 }
 
-#opcoes button:hover {
-    opacity: 0.4;
-}
-
 #descricao-prod {
     color: rgba(255, 255, 255, 0.8);
     margin-bottom: 10px;
+}
+
+
+#observacao-input input {
+    margin-top: 10px;
+    padding-left: 20px;
+    width: 100%;
+    height: 52px;
+    background: #FFFFFF;
+    border-radius: 4px;
+    border: none;
+    color: #6E7191;
+}
+
+#observacao-input {
+    margin: 0px 0px;
+    margin-right: 40px;
 }
 </style>

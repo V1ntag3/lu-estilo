@@ -45,5 +45,7 @@ export default {
 }
 </script>
 <style>
-
+.fundo {
+    padding-bottom: 100px;
+}
 </style>

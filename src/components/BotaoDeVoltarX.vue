@@ -19,7 +19,7 @@ export default {
 #voltar-x {
     background-color: transparent;
     transition: 0.5s;
-    position: absolute;
+    position: fixed;
     width: 40px;
     height: 40px;
     border: none;

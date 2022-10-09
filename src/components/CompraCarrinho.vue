@@ -25,12 +25,18 @@
             </div>
         </div>
     </Transition>
+
+
+
     <Transition name="fade">
         <div v-if="store.cartProducts.length == 0" id="compra-carrinho">
             <img src="../assets/carrinhovazio.png" alt="" id="carrinho-vazio">
         </div>
+
     </Transition>
+
     <NavbarInferior />
+
 </template>
 <script setup>
 const store = useUserStore()
