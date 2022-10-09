@@ -98,19 +98,7 @@
 const store = useUserStore()
 
 
-var item = {
-    unit_price: null,
-    product: null,
-    quantity: null
-}
-for (var i = 0; i < store.cartProducts.length; i++) {
 
-    item.unit_price = store.cartProducts[i].unit_price
-    item.product = store.cartProducts[i].product
-    item.quantity = store.cartProducts[i].quantity
-
-    store.pedido.items.push(item)
-}
 
 var endereco
 if (store.pedido.address == 1) {
@@ -170,10 +158,24 @@ export default {
 
             try {
                 const store = useUserStore()
+                var item = {
+                    unit_price: null,
+                    product: null,
+                    quantity: null
+                }
+                for (var i = 0; i < store.cartProducts.length; i++) {
+
+                    item.unit_price = store.cartProducts[i].unit_price
+                    item.product = store.cartProducts[i].product
+                    item.quantity = store.cartProducts[i].quantity
+
+                    store.pedido.items.push(item)
+                }
+
                 var entrega = 0
                 var subtotal = 0
-                for (var i = 0; i < store.cartProducts.length; i++) {
-                    subtotal = subtotal + (store.cartProducts[i].unit_price * store.cartProducts[i].quantity)
+                for (var j = 0; j < store.cartProducts.length; j++) {
+                    subtotal = subtotal + (store.cartProducts[j].unit_price * store.cartProducts[j].quantity)
                 }
                 var total = subtotal + entrega
 

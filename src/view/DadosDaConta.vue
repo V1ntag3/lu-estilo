@@ -7,7 +7,8 @@
             <p>Nome: <input type="text" disabled="disabled" v-model="store.dataUser.name" class="letra-400-14-24-00075">
             </p>
 
-            <p>CPF: <input type="text" v-model="cpf" v-maska="'###.###.### - ##'" class="letra-400-14-24-00075"></p>
+            <p>CPF: <input type="text" disabled="disabled" v-model="cpf" v-maska="'###.###.### - ##'"
+                    class="letra-400-14-24-00075"></p>
             <p>Telefone: <input type="text" disabled="disabled" v-model="telefone" class="letra-400-14-24-00075"></p>
         </div>
 
